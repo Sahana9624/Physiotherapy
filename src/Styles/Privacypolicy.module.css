@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.page {
+  font-family: "Outfit",  sans-serif;
+  color: #1a1a2e;
+}
+
+/* ---------------------------------------------------------------------- */
+/* PAGE HEADER                                                             */
+/* ---------------------------------------------------------------------- */
+
+.page-header {
+  background: #f0f4fb;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 6vw, 5rem);
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  color: #0c1b4d;
+  margin: 0 0 0.75rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #6c6c6c;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #122056;
+}
+
+.breadcrumb span:last-child {
+  color: #122056;
+  font-weight: 400;
+}
+
+.breadcrumb span[aria-hidden] {
+  color: #5b5f73;
+}
+
+/* ---------------------------------------------------------------------- */
+/* CONTENT                                                                 */
+/* ---------------------------------------------------------------------- */
+
+.content {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 6vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.section h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #122056;
+  margin: 0 0 1rem;
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section ul li {
+  position: relative;
+  padding-left: 1rem;
+  margin-left: 1.25rem;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #6C6C6C;
+}
+
+.section ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6C6C6C;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.section ul li strong {
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE                                                              */
+/* ---------------------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .content {
+    padding-left: clamp(2rem, 8vw, 6rem);
+    padding-right: clamp(2rem, 8vw, 6rem);
+  }
+}

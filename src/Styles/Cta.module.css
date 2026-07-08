@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.cta-section {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  font-family: "Outfit", sans-serif;
+}
+
+.cta-card {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: linear-gradient(85.77deg, #ECF3F8 1.16%, #E5E9FC 99.67%);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-eyebrow {
+  background: none;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  display: inline-block;
+  color: #122056;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #3B3B3B;
+  text-align: center;
+  margin: 0 0 0.75rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #6C6C6C;
+  font-size: 26px;
+  font-weight: 400;
+  max-width: 800px;
+  margin: 0 auto 0.5rem;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 400;
+  font-size: 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.92;
+}
+
+.btn--cta {
+  margin-top: 3rem;
+  max-width: max-content;
+  border-radius: 36px;
+  background: #13C5DD;
+  color: white;
+  padding: 8px 24px 8px 8px;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: inset 0 0 0 0px white;
+  transition: color 0.5s ease, box-shadow 0.5s ease;
+  max-height: 53px;
+}
+
+.btn--cta .btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: white;
+  color: #13C5DD;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  font-size: 16px;
+}
+
+.btn--cta .btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.btn--cta::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 40px;
+  transform: translateY(-50%);
+  transition: width 0.4s ease-out, left 0.4s ease-out, height 0.6s ease-out;
+  z-index: 0;
+}
+
+.btn--cta:hover::before {
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  transition: width 0.4s ease-out, left 0.4s ease-out, height 0.6s ease-out;
+}
+
+.btn--cta:hover {
+  color: #13C5DD;
+  opacity: 1;
+  box-shadow: inset 0 0 0 2px white;
+  transition: color 0.7s ease-out, box-shadow 0.7s ease-out;
+}
+
+.btn--cta:hover .btn-icon {
+  background: #13C5DD;
+  color: white;
+  transition: background-color 0.4s ease-out, color 0.4s ease-out;
+}
+
+.icon-default,
+.icon-hover {
+  position: absolute;
+  transition: opacity 0.6s ease, transform 0.4s ease;
+}
+
+.icon-default {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.icon-hover {
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+
+.btn--cta:hover .icon-default {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+.btn--cta:hover .icon-hover {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+@media (min-width: 1440px) {
+  .cta-card {
+    max-width: 1320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

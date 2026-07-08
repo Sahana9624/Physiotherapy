@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.newsDetail {
+  font-family: "Outfit", sans-serif;
+  color: #1a1a2e;
+}
+
+.header {
+  background: linear-gradient(180deg, #ECF3F8 0%, #FFFFFF 100%);
+  padding: clamp(2rem, 5vw, 3.5rem) var(--section-pad-x) clamp(0.5rem, 5.5vw, 4.5rem);
+  text-align: center;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  font-size: 20px;
+  color: #122056;
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #6C6C6C;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #122056;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 500;
+  color: #122056;
+  margin: 1.25rem;
+}
+
+.header p {
+  color: #6C6C6C;
+  font-size: 20px;
+  margin: 0;
+}
+
+.contentSection {
+  background: #F4F5F7;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  display: flex;
+  justify-content: center;
+}
+
+.newsCard {
+  background: #fff;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.5rem;
+  gap: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 768px) {
+  .newsCard {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 2.5rem;
+    gap: 2.5rem;
+  }
+}
+
+.imageWrapper {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .imageWrapper {
+    max-width: 45%;
+  }
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.textContent {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.badge {
+  background: linear-gradient(270deg, #EEFAF7 0%, #D8DDF7 131.66%);
+  color: #122056;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  color: #122056;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+
+.date {
+  color: #6C6C6C;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #6C6C6C;
+  font-weight: 400;
+}

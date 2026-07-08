@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.galleryDetail {
+  font-family: "Outfit", sans-serif;
+  color: #1a1a2e;
+}
+
+.header {
+  background: linear-gradient(180deg, #ECF3F8 0%, #FFFFFF 100%);
+  padding: clamp(2rem, 5vw, 3.5rem) var(--section-pad-x) clamp(0.5rem, 4vw, 5rem);
+  text-align: center;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  font-size: 20px;
+  color: #122056;
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #6C6C6C;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #122056;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 500;
+  color: #122056;
+  margin: 0 auto 1.25rem;
+}
+
+.header p {
+  color: #6C6C6C;
+  font-size: 20px;
+  margin: 0;
+}
+
+.gridSection {
+  padding: clamp(2rem, 2vw, 4rem) var(--section-pad-x) clamp(4rem, 8vw, 6rem);
+  background: #ffffff;
+}
+
+.imageGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .imageGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+.gridImg {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}

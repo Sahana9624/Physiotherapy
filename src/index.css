@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-y: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  overscroll-behavior-y: none;
+}
+
+body {
+  min-height: 100vh;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-y: none;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior-y: none;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0vh;
+}
+
+.global-admissions-tab {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  top: 50svh;
+  /* Prevents jumping on mobile scroll when URL bar hides */
+  transform: translateY(-50%) rotate(180deg);
+  background: #13C5DD;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  writing-mode: vertical-rl;
+  padding: 2rem 0.8rem;
+  border-radius: 0 8px 8px 0;
+  z-index: 9999;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .admission-year {
+    display: none;
+  }
+
+  .global-admissions-tab {
+    top: 400px;
+    /* Fallback for older mobile browsers */
+    top: 50svh;
+    /* Prevents jumping on scroll */
+    padding: 1.8rem 0.3rem;
+  }
+
+}
+
+.global-admissions-tab-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .global-admissions-tab:hover .global-admissions-tab-text {
+    transform: translateX(3px);
+  }
+}

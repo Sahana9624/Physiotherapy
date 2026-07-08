@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.course {
+  --color-navy: #0c1b4d;
+  --color-navy-light: #16275f;
+  --color-blue-deep: #1d2f6f;
+  --color-blue-accent: #2447c4;
+  --color-cyan: #2fd4d9;
+  --color-text-dark: #1a1a2e;
+  --color-text-muted: #5b5f73;
+  --color-bg-light: #eef3fb;
+  --color-bg-soft: #f6f8fc;
+  --color-white: #ffffff;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --section-pad-y: clamp(2.5rem, 6vw, 5rem);
+  --section-pad-x: clamp(1.25rem, 6vw, 5rem);
+  --max-width: 100%;
+
+  font-family: "Outfit", sans-serif;
+  color: var(--color-text-dark);
+}
+
+.course img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------------------------------------------------------------------- */
+/* HERO + HEADER CARD                                                      */
+/* ---------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  padding-bottom: clamp(2rem, 8vw, 4.5rem);
+}
+
+.hero__bg {
+  width: 100%;
+  height: clamp(560px, 58vw, 700px);
+  object-fit: cover;
+}
+
+.header-card {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  width: 90%;
+  margin: -15rem auto 0;
+  max-height: 287px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(12, 27, 77, 0.12);
+  padding: 1.55rem clamp(2.25rem, 6vw, 4rem) clamp(0.75rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  font-size: 20px;
+  font-weight: 400;
+  color: #6C6C6C;
+}
+
+.breadcrumb a {
+  color: #6C6C6C;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #122056;
+}
+
+.breadcrumb__current {
+  color: #122056;
+  font-weight: 400;
+}
+
+.header-card h1 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #122056;
+  margin: 0 0 1.5rem;
+}
+
+.header-card__meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.75rem, 3vw, 1.5rem);
+  flex-wrap: wrap;
+  color: #6C6C6C;
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 2.5rem;
+}
+
+/* .meta-divider {
+  width: 1px;
+  height: 16px;
+  background: #d7dcea;
+  display: none;
+} */
+
+.apply-btn {
+  background: #122056;
+  color: var(--color-white);
+  font-weight: 400;
+  font-size: 20px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.apply-btn:hover {
+  transform: translateY(-2px);
+  background-color: #ffffff;
+  border: 1px solid #122056;
+  color: #122056;
+  opacity: 0.92;
+}
+
+/* ---------------------------------------------------------------------- */
+/* COURSE DETAILS                                                          */
+/* ---------------------------------------------------------------------- */
+
+.details-section {
+  padding: 0 var(--section-pad-x) var(--section-pad-y);
+}
+
+.details-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4.5rem, 7vw, 5.5rem);
+}
+
+.details-grid__img {
+  width: 445px;
+  max-width: 100%;
+  height: 351px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.details-grid__content h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #122056;
+  margin: clamp(1.75rem, 4vw, 2.5rem) 0 1rem;
+}
+
+.details-grid__content h2:first-child {
+  margin-top: 0;
+}
+
+.bullet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: #6C6C6C;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+}
+
+.bullet-list strong {
+  color: #6C6C6C;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   BREAKPOINTS
+   ========================================================================== */
+
+@media (min-width: 520px) {
+  .meta-divider {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .details-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .details-grid__img {
+    flex: 0 0 445px;
+    height: 351px;
+    position: sticky;
+    top: 120px;
+  }
+
+  .details-grid__content {
+    flex: 1;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .header-card,
+  .details-grid {
+    max-width: 1320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apply-btn {
+    transition: none;
+  }
+}
