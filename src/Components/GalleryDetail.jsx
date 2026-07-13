@@ -19,7 +19,7 @@ export default function GalleryDetail() {
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link to="/">Home</Link>
           <span aria-hidden="true">›</span>
-          <Link to="/gallery">Gallery</Link>
+          <Link to="/gallery" className={styles.active}>Gallery</Link>
         </nav>
         <h1>{galleryItem.title}</h1>
         <p>Campus and Department Images</p>

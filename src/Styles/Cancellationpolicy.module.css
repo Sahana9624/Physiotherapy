@@ -10,16 +10,15 @@
 /* ---------------------------------------------------------------------- */
 
 .page-header {
-  background: #f0f4fb;
+  background: linear-gradient(180deg, #ECF3F8 0%, #FFFFFF 100%);
   padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 6vw, 5rem);
   text-align: center;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .page-header h1 {
   font-size: 36px;
   font-weight: 500;
-  color: #0c1b4d;
+  color: #122056;
   margin: 0 0 0.75rem;
 }
 
@@ -35,10 +34,6 @@
 .breadcrumb a {
   color: #6c6c6c;
   text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  color: #122056;
 }
 
 .breadcrumb span:last-child {
@@ -112,8 +107,8 @@
 }
 
 .section ul li strong {
-  color: #1a1a2e;
-  font-weight: 600;
+  color: #3b3b3b;
+  font-weight: 400;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -125,4 +120,35 @@
     padding-left: clamp(2rem, 8vw, 6rem);
     padding-right: clamp(2rem, 8vw, 6rem);
   }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 24px;
+  }
+  
+  .breadcrumb {
+    font-size: 18px;
+  }
+  
+  .section h2 {
+    font-size: 20px;
+  }
+  
+  .section ul li {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .breadcrumb a:hover {
+  color: #122056;
+  }
+
 }

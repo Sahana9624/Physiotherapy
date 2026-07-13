@@ -92,16 +92,18 @@ export default function Facilities() {
       <section className={styles.hero}>
         <img src={heroImg} alt="Faculty demonstrating clinical equipment" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
-        <div className={styles["hero__content"]}>
-          <h1>
-            Facilities of Mother Terasa College
-            <br /><span> of Physiotherapy</span>
-          </h1>
-          <p>
-            Experience a modern learning environment equipped with advanced
-            laboratories, clinical training facilities to support academic
-            excellence and professional growth.
-          </p>
+        <div className={styles["hero__inner"]}>
+          <div className={styles["hero__content"]}>
+            <h1>
+              Facilities of Mother Terasa College
+            <span> of Physiotherapy</span>
+            </h1>
+            <p>
+              Experience a modern learning environment equipped with advanced
+              laboratories, clinical training facilities to support academic
+              excellence and professional growth.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -166,9 +168,8 @@ export default function Facilities() {
             <div
               id={f.title.toLowerCase().replace(/\s+/g, "-")}
               key={f.title}
-              className={`${styles["facility-row"]} ${
-                idx % 2 === 0 ? styles["facility-row--reverse"] : ""
-              }`}
+              className={`${styles["facility-row"]} ${idx % 2 === 0 ? styles["facility-row--reverse"] : ""
+                }`}
             >
               <img src={f.img} alt={f.title} className={styles["facility-row__img"]} />
               <div className={styles["facility-row__content"]}>

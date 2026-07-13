@@ -19,9 +19,9 @@ export default function NewsDetail() {
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link to="/">Home</Link>
           <span aria-hidden="true">›</span>
-          <Link to="/news">News and Events</Link>
+          <Link to="/news" className={styles.active}>News and Events</Link>
         </nav>
-        <h1>Happenings @ MTCP</h1>
+        <h1>{newsItem.title}</h1>
         <p>Campus Updates &amp; Highlights</p>
       </section>
 

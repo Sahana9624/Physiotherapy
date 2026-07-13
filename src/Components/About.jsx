@@ -42,8 +42,8 @@ export default function About() {
         <div className={styles["hero__overlay"]} />
         <div className={styles["hero__content"]}>
           <h1>
-            About Mother Terasa College
-            <br /> of Physiotherapy
+            About Mother Terasa College<span>
+            <br /> of Physiotherapy</span>
           </h1>
           <p>
             The establishment of Mother Terasa Physiotherapy College in 2020

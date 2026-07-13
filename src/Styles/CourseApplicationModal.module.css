@@ -2,7 +2,13 @@
 
 .overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   display: flex;
@@ -78,11 +84,6 @@
   color: #555;
   z-index: 10;
   transition: background 0.2s, transform 0.6s ease;
-}
-
-.closeBtn:hover {
-  background: #f0f0f0;
-  transform: rotate(90deg);
 }
 
 .content {
@@ -193,14 +194,6 @@
   width: 100%;
 }
 
-.submitBtn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background-color: #ffffff;
-  border: 1px solid #122056;
-  color: #122056;
-  opacity: 0.92;
-}
-
 .submitBtn:disabled {
   background-color: #d1d5db;
   color: #9ca3af;
@@ -284,4 +277,74 @@
   font-size: 13px;
   margin: 0;
   padding-left: 4px;
+}
+
+
+/* ==========================================================================
+   MOBILE OVERRIDES
+   ========================================================================== */
+@media (max-width: 767px) {
+  .modal {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+  }
+  .successModal {
+    width: 90%;
+    border-radius: 32px;
+  }
+  .closeBtn {
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .content {
+    padding: 60px 20px 30px;
+  }
+  .content h2 {
+    font-size: 24px;
+  }
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 1.5rem;
+  }
+  .submitBtn {
+    font-size: 18px;
+    padding: 0.8rem;
+  }
+  .successContent {
+    padding: 28px 20px;
+  }
+  .successContent h2 {
+    font-size: 20px;
+  }
+  .successContent p {
+    font-size: 16px;
+  }
+  .successContent .submitBtn {
+    font-size: 18px;
+    height: 44px;
+  }
+}
+
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .closeBtn:hover {
+  background: #f0f0f0;
+  transform: rotate(90deg);
+  }
+
+  .submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-color: #ffffff;
+  border: 1px solid #122056;
+  color: #122056;
+  opacity: 0.92;
+  }
 }

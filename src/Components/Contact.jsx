@@ -69,7 +69,6 @@ export default function Contact() {
     form.name.trim() !== "" &&
     isMobileValid &&
     isEmailValid &&
-    form.message.trim() !== "" &&
     form.consent;
 
   const handleInvalid = (e) => {
@@ -89,14 +88,15 @@ export default function Contact() {
     
     setIsSubmitting(true);
     try {
-      const response = await fetch("https://formsubmit.co/ajax/sahana19362004@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-            _subject: "New Contact Form Submission of Mother Terasa College of Physiotherapy",
+            access_key: "9f26eec7-0a35-48ff-8cc8-1f92075d10f4", // Replace with your actual key
+            subject: "New Contact Form Submission of Mother Terasa College of Physiotherapy",
             Name: form.name,
             Mobile: form.mobile,
             Email: form.email,
@@ -108,6 +108,7 @@ export default function Contact() {
         setSubmitted(true);
         setForm(initialForm);
         setTouched(initialTouched);
+        setWarnings({});
       } else {
         console.error("Form submission failed");
       }
@@ -231,13 +232,12 @@ export default function Contact() {
               <div className={styles.inputGroup}>
                 <textarea
                   name="message"
-                  placeholder={touched.message && form.message.trim() === "" ? "Please fill this" : "Any Questions or Preferences"}
+                  placeholder="Any Questions or Preferences (Optional)"
                   value={form.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  required
                   rows={4}
-                  className={`${styles.textarea} ${touched.message && form.message.trim() === "" ? styles.error : ""}`}
+                  className={styles.textarea}
                 />
               </div>
 

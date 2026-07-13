@@ -74,7 +74,7 @@ export default function Academics() {
               }}
               className={`${styles.btn} ${styles["btn--primary"]}`}
             >
-              Explore Programs <span aria-hidden="true">→</span>
+              Explore Programs <span className={styles["btn-arrow"]} aria-hidden="true"></span>
             </a>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function Academics() {
           <div className={styles["program-row"]}>
             <div className={styles["program-row__info"]}>
               <span className={styles["program-row__title"]}>Bachelor of Physiotherapy</span>
-              <span className={styles["program-row__duration"]}>Duration : 5 Years</span>
+              <span className={styles["program-row__duration"]}>Duration : 5 Years + 1 Year Internship</span>
             </div>
             <Link to="/course-description" className={styles["program-row__btn"]}>
               Know More

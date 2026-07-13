@@ -113,14 +113,15 @@ export default function AdmissionsModal({ isOpen, onClose }) {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("https://formsubmit.co/ajax/sahana19362004@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: "New Admissions Enquiry Submission of Mother Terasa College of Physiotherapy",
+          access_key: "9f26eec7-0a35-48ff-8cc8-1f92075d10f4", // Replace with your actual key
+          subject: "New Admissions Enquiry Submission of Mother Terasa College of Physiotherapy",
           Name: form.name,
           Mobile: form.mobile,
           Email: form.email

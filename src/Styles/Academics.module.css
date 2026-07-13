@@ -68,12 +68,18 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
+.btn-arrow {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background-color: currentColor;
+  mask: url('../assets/icons/arrow-right.svg') no-repeat center / contain;
+  -webkit-mask: url('../assets/icons/arrow-right.svg') no-repeat center / contain;
+  margin-top: 2px ;
+  transition: transform 0.3s ease;
 }
 
 .btn--primary {
@@ -83,14 +89,6 @@
   font-weight: 400;
   border: 1px solid transparent;
   transition: all 0.3s ease;
-}
-
-.btn--primary:hover {
-  transform: translateY(-2px);
-  background-color: #ffffff;
-  border: 1px solid #122056;
-  color: #122056;
-  opacity: 0.92;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -225,15 +223,6 @@
   z-index: 0;
 }
 
-.stat-card__item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(32, 51, 122, 0.2);
-}
-
-.stat-card__item:hover::before {
-  opacity: 1;
-}
-
 .stat-card__value,
 .stat-card__label {
   position: relative;
@@ -253,22 +242,13 @@
   color: #6C6C6C;
 }
 
-.stat-card__item:hover .stat-card__value {
-  color: #ffffff;
-  transform: scale(0.93);
-}
-
-.stat-card__item:hover .stat-card__label {
-  color: #ffffff;
-  transform: scale(0.97);
-}
-
 /* ---------------------------------------------------------------------- */
 /* ENROLL / PROGRAM                                                        */
 /* ---------------------------------------------------------------------- */
 
 .enroll-section {
   padding: clamp(1.5rem, 4vw, 3rem) var(--section-pad-x);
+  scroll-margin-top: 180px;
 }
 
 .enroll-card {
@@ -344,14 +324,6 @@
   transition: all 0.3s ease;
 }
 
-.program-row__btn:hover {
-  transform: translateY(-2px);
-  background-color: #ffffff;
-  border: 1px solid #122056;
-  color: #122056;
-  opacity: 0.92;
-}
-
 /* ---------------------------------------------------------------------- */
 /* PROGRAM HIGHLIGHTS                                                      */
 /* ---------------------------------------------------------------------- */
@@ -401,16 +373,11 @@
   display: flex;
   gap: 1.5rem;
   align-items: center;
-  padding: 1.25rem 2rem;
+  padding: 0.85rem 2rem;
   border-radius: 12px;
   background: transparent;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-}
-
-.highlights-list__item:hover {
-  background: var(--color-white);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
 }
 
 .highlights-list__icon {
@@ -426,10 +393,6 @@
   position: relative;
 }
 
-.highlights-list__item:hover .highlights-list__icon {
-  background: #122056;
-}
-
 .highlights-list__icon img {
   width: 33px;
   height: 33px;
@@ -437,20 +400,8 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.highlights-list__item:hover .highlights-list__icon img {
-  transform: scale(1.2);
-}
-
 .highlights-list__icon .icon-hover {
   opacity: 0;
-}
-
-.highlights-list__item:hover .highlights-list__icon .icon-normal {
-  opacity: 0;
-}
-
-.highlights-list__item:hover .highlights-list__icon .icon-hover {
-  opacity: 1;
 }
 
 .highlights-list__item h3 {
@@ -469,13 +420,9 @@
   left: 0;
   bottom: 0;
   width: 0;
-  height: 2px;
-  background-color: #62D3BB;
+  height: 0;
+  border-bottom: 3px solid #62D3BB;
   transition: width 0.3s ease;
-}
-
-.highlights-list__item:hover h3::after {
-  width: 50%;
 }
 
 .highlights-list__item p {
@@ -553,5 +500,314 @@
   .btn,
   .program-row__btn {
     transition: none;
+  }
+}
+
+/* ==========================================================================
+   MOBILE OVERRIDES (To match referral design exactly)
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* HERO */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+    min-height: 87vh;
+  }
+
+  .hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-position: center top;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero__overlay {
+    display: block;
+    background: linear-gradient(0deg, #FFFFFF 15%, rgba(255, 255, 255, 0.363) 60%);
+    z-index: 0;
+  }
+
+  .hero__inner {
+    z-index: 1;
+    margin-top: 0;
+    padding: 0 0.85rem 4rem;
+    width: 100%;
+  }
+
+  .hero__content {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: none;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #122056;
+  }
+
+  .hero__content h1 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero__content h1 span {
+    font-weight: 600;
+  }
+
+  .hero__content p {
+    font-size: 20px;
+  }
+
+  .btn--primary {
+    background: linear-gradient(90deg, #122056 0%, #3B509A 100%);
+
+  }
+
+  /* ACADEMIC EXCELLENCE (stat-card) */
+  .stat-card {
+    background: linear-gradient(180deg, #F0F4FF 0%, #E5E9FC 100%);
+    margin: 0.1rem 0.85rem 0;
+    padding: 2rem 12px;
+    text-align: center;
+  }
+
+  .stat-card__intro h2 {
+    font-size: 24px;
+  }
+
+  .stat-card__intro p {
+    font-size: 20px;
+    margin: 0 auto;
+  }
+
+  .stat-card__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 358px;
+    margin: 0 auto;
+  }
+
+  .stat-card__item {
+    min-height: auto;
+    padding: 17px 92px 17px 24px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* ENROLL SECTION */
+  .enroll-section {
+    min-height: 475px;
+    padding: 2rem 0.85rem;
+  }
+
+  .enroll-card {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+
+  .enroll-card h2 {
+    font-size: 24px;
+  }
+
+  .enroll-card>p {
+    font-size: 20px;
+  }
+
+  .program-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 12px;
+    border-radius: 24px;
+  }
+
+  .program-row__title {
+    margin-bottom: 0.5rem;
+  }
+
+  .program-row__duration {
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+
+  .program-row__btn {
+    width: 34vh;
+  }
+
+  /* HIGHLIGHTS */
+
+  .highlights-wrap {
+    padding: 2rem 0.85rem;
+    background: #f6f8fcd1;
+  }
+
+  .highlights-card {
+    padding: 2rem 12px;
+  }
+
+  .highlights-card__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .section-subtitle {
+    font-size: 20px;
+  }
+
+  .highlights-grid {
+    gap: 2rem;
+  }
+
+  .highlights-grid__img {
+    height: 354px;
+    width: 100%;
+  }
+
+  /* Feature List Items Stacked */
+  .highlights-list__item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .highlights-list__icon {
+    margin: 10px auto;
+  }
+
+  .highlights-list__item h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .highlights-list__item h3 {
+    font-size: 22px;
+  }
+
+  .highlights-list__item p {
+    font-size: 20px;
+  }
+
+  /* Make hover state the default for mobile */
+  .highlights-list__item {
+    background: var(--color-white);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .highlights-list__icon {
+    background: #122056;
+  }
+
+  .highlights-list__icon .icon-normal {
+    opacity: 0 !important;
+  }
+
+  .highlights-list__icon .icon-hover {
+    opacity: 1 !important;
+  }
+
+  .highlights-list__item h3::after {
+    width: 80px;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    background-color: #ffffff;
+    border: 1px solid #122056;
+    color: #122056;
+    opacity: 0.92;
+  }
+
+  .stat-card__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(32, 51, 122, 0.2);
+  }
+
+  .stat-card__item:hover::before {
+    opacity: 1;
+  }
+
+  .stat-card__item:hover .stat-card__value {
+    color: #ffffff;
+    transform: scale(0.93);
+  }
+
+  .stat-card__item:hover .stat-card__label {
+    color: #ffffff;
+    transform: scale(0.97);
+  }
+
+  .program-row__btn:hover {
+    transform: translateY(-2px);
+    background-color: #ffffff;
+    border: 1px solid #122056;
+    color: #122056;
+    opacity: 0.92;
+  }
+
+  .highlights-list__item:hover {
+    background: var(--color-white);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .highlights-list__item:hover .highlights-list__icon {
+    background: #122056;
+  }
+
+  .highlights-list__item:hover .highlights-list__icon img {
+    transform: scale(1.2);
+  }
+
+  .highlights-list__item:hover .highlights-list__icon .icon-normal {
+    opacity: 0;
+  }
+
+  .highlights-list__item:hover .highlights-list__icon .icon-hover {
+    opacity: 1;
+  }
+
+  .highlights-list__item:hover h3::after {
+    width: 80px;
+  }
+
+}
+
+/* ==========================================================================
+   MOBILE PADDING OVERRIDE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .academics {
+    --section-pad-x: 0.85rem;
+    --section-pad-y: 1.5rem;
+    --section-pad-y: 1.5rem;
   }
 }

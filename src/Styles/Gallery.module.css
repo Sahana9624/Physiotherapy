@@ -70,11 +70,6 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
-}
-
 .btn--cta {
   background: var(--color-cyan);
   color: var(--color-navy);
@@ -105,10 +100,6 @@
   color: var(--color-text-muted);
   text-decoration: none;
   font-weight: 400;
-}
-
-.breadcrumb a:hover {
-  color: #122056;
 }
 
 .breadcrumb__current {
@@ -146,6 +137,9 @@
 }
 
 .gallery-card {
+  max-width: 410px;
+  margin: 0 auto;
+  width: 100%;
   background: none;
   border: none;
   padding: 0;
@@ -157,45 +151,44 @@
   text-decoration: none;
 }
 
-.gallery-card__img {
+.gallery-card__img-wrap {
+  position: relative;
   width: 100%;
-  height: auto;
+  height: 230px;
   border-radius: 16px;
+  overflow: hidden;
   margin-bottom: 1rem;
 }
 
-.gallery-card__title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--color-text-dark);
+.gallery-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-/* ---------------------------------------------------------------------- */
-/* CTA                                                                     */
-/* ---------------------------------------------------------------------- */
-
-.cta-section {
-  padding: 0 var(--section-pad-x) var(--section-pad-y);
-}
-
-.cta-card {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  background: var(--color-bg-light);
-  border-radius: var(--radius-lg);
-  padding: clamp(2rem, 6vw, 3.5rem) clamp(1.5rem, 6vw, 3rem);
-  text-align: center;
+.gallery-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 32, 86, 0.4);
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.cta-card .section-eyebrow {
-  background: var(--color-white);
+.plus-icon {
+  color: white;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.cta-card .btn--cta {
-  margin-top: 1.25rem;
+.gallery-card__title {
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color-text-dark);
 }
 
 /* ==========================================================================
@@ -215,6 +208,7 @@
 }
 
 @media (min-width: 1440px) {
+
   .gallery-grid,
   .cta-card {
     max-width: 1320px;
@@ -222,8 +216,100 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .btn,
   .gallery-card__img {
     transition: none;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header p {
+    font-size: 18px;
+  }
+
+  .breadcrumb {
+    font-size: 18px;
+  }
+
+  .gallery-card__title {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  .breadcrumb a:hover {
+    color: #122056;
+  }
+
+  .gallery-card:hover .gallery-card__overlay {
+    opacity: 1;
+  }
+
+  .gallery-card:hover .gallery-card__img {
+    transform: scale(1.05);
+  }
+
+  .gallery-card:hover .plus-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================================
+   MOBILE PADDING OVERRIDE
+   ========================================================================== */
+.gallery-card__link {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .gallery {
+    --section-pad-x: 0.85rem;
+    --section-pad-y: 1.5rem;
+  }
+  .gallery-grid {
+    gap: 3rem;
+  }
+
+  .gallery-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 400;
+    font-size: 18px;
+    color: #122056;
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
+
+  .gallery-card__link-arrow {
+    display: inline-flex;
+    align-items: center;
+    transform: rotate(-45deg);
+  }
+
+  /* Disable hover overlay on mobile */
+  .gallery-card__overlay {
+    display: none !important;
+  }
+
+  .gallery-card__img {
+    transform: none !important;
   }
 }

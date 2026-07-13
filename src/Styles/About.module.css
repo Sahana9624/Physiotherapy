@@ -83,11 +83,6 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
-}
-
 .btn--cta {
   background: var(--color-cyan);
   color: var(--color-navy);
@@ -117,7 +112,7 @@
 .hero__overlay {
   position: absolute;
   inset: 0;
- background: linear-gradient(120.33deg, #ffffff 18.36%, rgba(255, 255, 255, 0) 60.04%);
+  background: linear-gradient(120.33deg, #ffffff 18.36%, rgba(255, 255, 255, 0) 60.04%);
 
 }
 
@@ -154,11 +149,9 @@
 /* ---------------------------------------------------------------------- */
 
 .purpose-section {
-   background: #122056;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.08) 1.3px,
-    transparent 1px
-  );
+  background: #122056;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.3px,
+      transparent 1px);
   background-size: 18px 18px;
   padding: clamp(2rem, 4vw, 3rem) var(--section-pad-x);
   display: flex;
@@ -193,10 +186,10 @@
   border-radius: 18px;
 }
 
-  .purpose-card__content {
-    margin-left: auto;
-    padding-left: 3rem;
-  }
+.purpose-card__content {
+  margin-left: auto;
+  padding-left: 3rem;
+}
 
 .purpose-card__content .section-eyebrow {
   background: none;
@@ -286,8 +279,8 @@
   padding: 0 var(--section-pad-x) var(--section-pad-y);
 }
 
-.mission-section__inner {  
-  max-width: 600px; 
+.mission-section__inner {
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -320,7 +313,7 @@
 }
 
 .mission-card h2::after {
- content: "";
+  content: "";
   display: block;
   width: 45px;
   height: 1.5px;
@@ -393,7 +386,7 @@
 
 .leader-card__content h3 {
   color: var(--color-white);
-  font-size:30px;
+  font-size: 30px;
   font-weight: 500;
   margin: 0 0 0.75rem;
 }
@@ -453,7 +446,7 @@
     margin-right: -6rem;
     z-index: 2;
     position: relative;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 3.5rem 1rem 3.5rem 3rem;
     min-height: 280px;
   }
@@ -477,7 +470,7 @@
     margin-left: -6rem;
     z-index: 2;
     position: relative;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 2rem 2.3rem;
     min-height: 280px;
   }
@@ -499,6 +492,7 @@
 }
 
 @media (min-width: 1440px) {
+
   .hero__content,
   .purpose-card,
   .vision-section__inner,
@@ -511,5 +505,210 @@
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;
+  }
+}
+
+/* ==========================================================================
+   MOBILE OVERRIDES (To match referral design exactly)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+    min-height: 89vh;
+  }
+
+  .hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-position: center 70%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero__overlay {
+    display: block;
+    height: 100%;
+    background: linear-gradient(360deg, #FFFFFF 20%, rgba(255, 255, 255, 0) 100%);
+    z-index: 0;
+  }
+
+  .hero__content {
+    z-index: 1;
+    margin-top: 0;
+    padding: 0 0.85rem 7rem;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 370px;
+  }
+
+  .hero__content h1 {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .hero__content span {
+    font-weight: 600;
+  }
+
+  .hero__content p {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .purpose-card {
+    gap: 2rem;
+    padding: 2rem 0.85rem;
+  }
+
+  .purpose-card__content {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .purpose-card__content h2 {
+    font-size: 28px;
+  }
+
+  .purpose-card__content p {
+    font-size: 20px;
+  }
+
+  .vision-card {
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+    width: 90%;
+    z-index: 2;
+    position: relative;
+    padding: 2rem 0.85rem;
+    background: linear-gradient(360deg, #FFFFFF 0%, #E5E9FC 100%);
+  }
+
+  .vision-section__img {
+    margin-top: 2.5rem;
+  }
+
+  .vision-card h2 {
+    font-size: 24px;
+  }
+
+  .vision-card p {
+    font-size: 18px;
+  }
+
+  .mission-card {
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+    width: 90%;
+    z-index: 2;
+    position: relative;
+    padding: 2rem 0.85rem;
+    background: linear-gradient(0deg, #FFFFFF 0%, #ECF3F8 100%);
+
+
+  }
+
+  .mission-card h2 {
+    font-size: 24px;
+  }
+
+  .mission-card p {
+    font-size: 18px;
+  }
+
+  .leadership-section .section-title {
+    font-size: 24px;
+    max-width: 372px;
+  }
+
+  .leadership-section .section-subtitle {
+    font-size: 20px;
+  }
+
+  .leader-card {
+    padding: 0;
+    background: none;
+    margin-top: 3rem;
+  }
+
+  .leader-card__photo-wrap {
+    background: linear-gradient(180deg, rgba(42, 77, 254, 0.201) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 20px;
+    padding: 1.5rem 0.85rem 2rem 0.85rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .leader-card__photo {
+    height: 353px;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .leader-card__name {
+    margin-top: 1rem;
+    font-size: 24px;
+
+  }
+
+  .leader-card__content {
+    background: transparent;
+    border-radius: 20px;
+    margin: -3.5rem 0 0;
+    padding: 2rem 10px;
+    position: relative;
+    z-index: 2;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .leader-card__content h3,
+  .leader-card__content p {
+    color: white;
+  }
+
+  .leader-card__content h3 {
+    font-size: 24px;
+  }
+
+  .leader-card__content p {
+    font-size: 20px;
+  }
+
+  /* Force fade-up elements to be visible on mobile to prevent intersection observer issues */
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+}
+
+/* ==========================================================================
+   MOBILE PADDING OVERRIDE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .about {
+    --section-pad-x: 0.85rem;
+    --section-pad-y: 1.5rem;
   }
 }

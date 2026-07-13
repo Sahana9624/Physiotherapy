@@ -75,11 +75,7 @@ body::-webkit-scrollbar {
   }
 
   .global-admissions-tab {
-    top: 400px;
-    /* Fallback for older mobile browsers */
-    top: 50svh;
-    /* Prevents jumping on scroll */
-    padding: 1.8rem 0.3rem;
+    display: none;
   }
 
 }
@@ -92,5 +88,24 @@ body::-webkit-scrollbar {
 @media (hover: hover) {
   .global-admissions-tab:hover .global-admissions-tab-text {
     transform: translateX(3px);
+  }
+}
+
+/* Fade up animation for pages on mobile */
+@media (max-width: 768px) {
+  main {
+    animation: fadeUpMobile 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeUpMobile {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

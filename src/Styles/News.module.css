@@ -4,7 +4,7 @@
   --color-navy: #122056;
   --color-navy-light: #16275f;
   --color-blue-deep: #1d2f6f;
-  --color-blue-accent:  #617CFF;
+  --color-blue-accent: #617CFF;
   --color-cyan: #2fd4d9;
   --color-text-dark: #1a1a2e;
   --color-text-muted: #6C6C6C;
@@ -70,11 +70,6 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
-}
-
 .btn--cta {
   background: var(--color-cyan);
   color: var(--color-navy);
@@ -107,10 +102,6 @@
   text-decoration: none;
 }
 
-.breadcrumb a:hover {
-  color: var(--color-navy);
-}
-
 .breadcrumb__current {
   color: var(--color-navy);
 }
@@ -126,7 +117,7 @@
   color: var(--color-text-muted);
   font-size: 20px;
   font-weight: 400;
-  margin-bottom: 0 ;
+  margin-bottom: 0;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -211,19 +202,11 @@
   transition: color 0.3s ease;
 }
 
-.news-card:hover .news-card__link {
-  color: var(--color-blue-accent);
-}
-
 .news-card__link-arrow {
   display: inline-flex;
   align-items: center;
   transition: transform 0.3s ease;
   transform: rotate(-45deg);
-}
-
-.news-card:hover .news-card__link-arrow {
-  transform: rotate(0deg);
 }
 
 .news-card__link::after {
@@ -235,10 +218,6 @@
   height: 1.5px;
   background-color: var(--color-blue-accent);
   transition: width 0.3s ease;
-}
-
-.news-card:hover .news-card__link::after {
-  width: 100%;
 }
 
 
@@ -259,6 +238,7 @@
 }
 
 @media (min-width: 1440px) {
+
   .news-grid,
   .cta-card {
     max-width: 1320px;
@@ -268,5 +248,81 @@
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .news-card__img {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header p {
+    font-size: 18px;
+  }
+
+  .breadcrumb {
+    font-size: 18px;
+  }
+
+  .news-card__badge {
+    font-size: 16px;
+  }
+
+  .news-card h2 {
+    font-size: 20px;
+  }
+
+  .news-card__date,
+  .news-card__excerpt {
+    font-size: 16px;
+  }
+
+  .news-card__link {
+    font-size: 18px;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-navy);
+  }
+
+  .news-card:hover .news-card__link {
+    color: var(--color-blue-accent);
+  }
+
+  .news-card:hover .news-card__link-arrow {
+    transform: rotate(0deg);
+  }
+
+  .news-card:hover .news-card__link::after {
+    width: 100%;
+  }
+
+}
+
+/* ==========================================================================
+   MOBILE PADDING OVERRIDE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .news {
+    --section-pad-x: 0.85rem;
+    --section-pad-y: 1.5rem;
+  }
+  .news-grid {
+    gap: 3rem;
   }
 }

@@ -26,35 +26,35 @@ function App() {
     <BrowserRouter>
       <div className="wrapper">
         <ScrollToTop />
-      <Header />
-      <div 
-        className="global-admissions-tab" 
-        aria-hidden="true"
-        onClick={() => setAdmissionsModalOpen(true)}
-      >
-        <span className="global-admissions-tab-text">Admissions open <span className="admission-year">2026-2027</span></span>
-      </div>
-      <AdmissionsModal 
-        isOpen={isAdmissionsModalOpen} 
-        onClose={() => setAdmissionsModalOpen(false)} 
-      />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/academics" element={<Academics />} />
-        <Route path="/facilities" element={<Facilities />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/News" element={<News />} />
-        <Route path="/news/:slug" element={<NewsDetail />} />
-        <Route path="/Gallery" element={<Gallery />} />
-        <Route path="/gallery/:slug" element={<GalleryDetail />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route path="/return-refund-policy" element={<ReturnRefundPolicy />} />
-        <Route path="/cancellation-policy" element={<CancellationPolicy />} />
-        <Route path="/course-description" element={<CourseDescription />} />
-      </Routes>
-      <Footer />
+        <Header />
+        <div
+          className="global-admissions-tab"
+          aria-hidden="true"
+          onClick={() => setAdmissionsModalOpen(true)}
+        >
+          <span className="global-admissions-tab-text">Admissions open <span className="admission-year">2026-2027</span></span>
+        </div>
+        <AdmissionsModal
+          isOpen={isAdmissionsModalOpen}
+          onClose={() => setAdmissionsModalOpen(false)}
+        />
+        <Routes>
+          <Route path="/" element={<Home setAdmissionsModalOpen={setAdmissionsModalOpen} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/academics" element={<Academics />} />
+          <Route path="/facilities" element={<Facilities />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/News" element={<News />} />
+          <Route path="/news/:slug" element={<NewsDetail />} />
+          <Route path="/Gallery" element={<Gallery />} />
+          <Route path="/gallery/:slug" element={<GalleryDetail />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/return-refund-policy" element={<ReturnRefundPolicy />} />
+          <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+          <Route path="/course-description" element={<CourseDescription />} />
+        </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

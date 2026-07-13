@@ -104,8 +104,9 @@ const stats = [
   { value: "1000+", label: "Graduating Students" },
 ];
 
-export default function Home() {
+export default function Home({ setAdmissionsModalOpen }) {
   const [openFaq, setOpenFaq] = useState(0);
+  const [isTouchPaused, setIsTouchPaused] = useState(false);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? -1 : index);
@@ -124,9 +125,17 @@ export default function Home() {
             physiotherapy education, practical training, and expert
             mentorship.
           </p>
-          <Link to="/academics" className={`${styles.btn} ${styles["btn--primary"]}`}>
-            Explore Programs <span aria-hidden="true">→</span>
-          </Link>
+          <div className={styles.ctaGroup}>
+            <Link to="/academics" className={`${styles.btn} ${styles["btn--primary"]}`}>
+              Explore Programs <span className={styles["btn-arrow"]} aria-hidden="true"></span>
+            </Link>
+            <button 
+              className={`${styles.btn} ${styles["btn--secondary"]} ${styles.mobileAdmissionsBtn}`}
+              onClick={() => setAdmissionsModalOpen?.(true)}
+            >
+              Admissions Open <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -274,9 +283,16 @@ export default function Home() {
           Physiotherapy.
         </p>
 
-        <div className={styles["testimonial-marquee-container"]}>
-          <div className={styles["testimonial-marquee-track"]}>
-            {[...testimonials, ...testimonials].map((t, i) => (
+        <div 
+          className={styles["testimonial-marquee-container"]}
+          onTouchStart={() => setIsTouchPaused(true)}
+          onTouchEnd={() => setIsTouchPaused(false)}
+        >
+          <div 
+            className={styles["testimonial-marquee-track"]}
+            style={{ animationPlayState: isTouchPaused ? 'paused' : undefined }}
+          >
+            {Array(20).fill(testimonials).flat().map((t, i) => (
               <div className={styles["testimonial-card"]} key={`${t.name}-${i}`}>
                 <p className={styles["testimonial-card__quote"]}>
                   &ldquo;{t.quote}&rdquo;
@@ -294,11 +310,19 @@ export default function Home() {
 
       {/* CAMPUS LIFE */}
       <section className={styles["campus-section"]}>
-        <div className={styles["campus-card"]}>
+        <div className={styles["campus-header-mobile"]}>
           <h2 className={styles["campus-title"]}>Campus Life @MTCP</h2>
           <p className={styles["campus-subtitle"]}>
             Discover a Campus That Encourages Innovation, Collaboration, and Care.
           </p>
+        </div>
+        <div className={styles["campus-card"]}>
+          <div className={styles["campus-header-desktop"]}>
+            <h2 className={styles["campus-title"]}>Campus Life @MTCP</h2>
+            <p className={styles["campus-subtitle"]}>
+              Discover a Campus That Encourages Innovation, Collaboration, and Care.
+            </p>
+          </div>
 
           <div className={styles["campus-grid"]}>
             {/* Top row: text left, big image right */}

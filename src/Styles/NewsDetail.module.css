@@ -3,6 +3,7 @@
 .newsDetail {
   font-family: "Outfit", sans-serif;
   color: #1a1a2e;
+  background: #F4F5F7;
 }
 
 .header {
@@ -28,7 +29,7 @@
   text-decoration: none;
 }
 
-.breadcrumb a:hover {
+.breadcrumb a.active {
   color: #122056;
 }
 
@@ -64,14 +65,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
-@media (min-width: 768px) {
-  .newsCard {
-    flex-direction: row;
-    align-items: stretch;
-    padding: 2.5rem;
-    gap: 2.5rem;
-  }
-}
+
 
 .imageWrapper {
   flex: 1;
@@ -80,11 +74,7 @@
   max-width: 100%;
 }
 
-@media (min-width: 768px) {
-  .imageWrapper {
-    max-width: 45%;
-  }
-}
+
 
 .imageWrapper img {
   width: 100%;
@@ -131,4 +121,83 @@
   line-height: 1.7;
   color: #6C6C6C;
   font-weight: 400;
+}
+
+/* ==========================================================================
+   BREAKPOINTS
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .newsCard {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 2.5rem;
+    gap: 2.5rem;
+  }
+
+  .imageWrapper {
+    max-width: 45%;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header {
+    padding: 36px;
+  }
+
+  .header h1{
+    font-size: 24px;
+  }
+
+  .header p{
+    font-size: 18px;
+  }
+
+  .breadcrumb{
+    font-size: 18px;
+  }
+
+.contentSection{
+  padding: 20px 8px;
+}
+
+  .imageWrapper img {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .newsCard {
+    padding: 0.85rem;
+    gap: 1.25rem;
+  }
+
+  .textContent {
+    padding: 0;
+  }
+
+  .badge {
+    background: none;
+    margin-left: -20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .breadcrumb a:hover {
+  color: #122056;
+  }
+
 }
