@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Returnrefundpolicy.module.css";
+import FadeUp from "./FadeUp";
 
 const sections = [
   {
@@ -43,36 +44,40 @@ export default function ReturnRefundPolicy() {
     <main className={styles.page}>
       {/* PAGE HEADER */}
       <section className={styles["page-header"]}>
-        <h1>Return and Refund Policy</h1>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span aria-hidden="true">›</span>
-          <span>Return and Refund Policy</span>
-        </nav>
+        <FadeUp>
+          <h1>Return and Refund Policy</h1>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">›</span>
+            <span>Return and Refund Policy</span>
+          </nav>
+        </FadeUp>
       </section>
 
       {/* CONTENT */}
       <section className={styles.content}>
-        {sections.map((section) => (
-          <div className={styles.section} key={section.title}>
-            <h2>{section.title}</h2>
-            {section.intro && (
-              <p className={styles["section__intro"]}>{section.intro}</p>
-            )}
-            <ul>
-              {section.items.map((item, idx) =>
-                typeof item === "string" ? (
-                  <li key={idx}>{item}</li>
-                ) : (
-                  <li key={idx}>
-                    <strong>{item.bold}</strong>
-                    {item.text}
-                  </li>
-                )
+        <FadeUp>
+          {sections.map((section) => (
+            <div className={styles.section} key={section.title}>
+              <h2>{section.title}</h2>
+              {section.intro && (
+                <p className={styles["section__intro"]}>{section.intro}</p>
               )}
-            </ul>
-          </div>
-        ))}
+              <ul>
+                {section.items.map((item, idx) =>
+                  typeof item === "string" ? (
+                    <li key={idx}>{item}</li>
+                  ) : (
+                    <li key={idx}>
+                      <strong>{item.bold}</strong>
+                      {item.text}
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          ))}
+        </FadeUp>
       </section>
     </main>
   );

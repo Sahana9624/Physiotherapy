@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Privacypolicy.module.css";
+import FadeUp from "./FadeUp";
 
 const sections = [
   {
@@ -56,33 +57,37 @@ export default function PrivacyPolicy() {
     <main className={styles.page}>
       {/* PAGE HEADER */}
       <section className={styles["page-header"]}>
-        <h1>We Respect Your Privacy</h1>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span aria-hidden="true">›</span>
-          <span>Privacy Policy</span>
-        </nav>
+        <FadeUp>
+          <h1>We Respect Your Privacy</h1>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">›</span>
+            <span>Privacy Policy</span>
+          </nav>
+        </FadeUp>
       </section>
 
       {/* POLICY CONTENT */}
       <section className={styles.content}>
-        {sections.map((section) => (
-          <div className={styles.section} key={section.title}>
-            <h2>{section.title}</h2>
-            <ul>
-              {section.items.map((item, idx) =>
-                typeof item === "string" ? (
-                  <li key={idx}>{item}</li>
-                ) : (
-                  <li key={idx}>
-                    <strong>{item.bold}</strong>
-                    {item.text}
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-        ))}
+        <FadeUp>
+          {sections.map((section) => (
+            <div className={styles.section} key={section.title}>
+              <h2>{section.title}</h2>
+              <ul>
+                {section.items.map((item, idx) =>
+                  typeof item === "string" ? (
+                    <li key={idx}>{item}</li>
+                  ) : (
+                    <li key={idx}>
+                      <strong>{item.bold}</strong>
+                      {item.text}
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          ))}
+        </FadeUp>
       </section>
     </main>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/News.module.css";
 import Cta from "./Cta";
-
+import FadeUp from "./FadeUp";
 import { newsItems } from "../data/newsData";
 
 export default function News() {
@@ -10,21 +10,29 @@ export default function News() {
     <main className={styles.news}>
       {/* HEADER */}
       <section className={styles.header}>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span aria-hidden="true">›</span>
-          <span className={styles["breadcrumb__current"]}>News and Events</span>
-        </nav>
+        <FadeUp>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">›</span>
+            <span className={styles["breadcrumb__current"]}>News and Events</span>
+          </nav>
 
-        <h1>Happenings @ MTCP</h1>
-        <p>Campus Updates &amp; Highlights</p>
+          <h1>Happenings @ MTCP</h1>
+          <p>Campus Updates &amp; Highlights</p>
+        </FadeUp>
       </section>
 
       {/* NEWS GRID */}
       <section className={styles["grid-section"]}>
         <div className={styles["news-grid"]}>
-          {newsItems.map((item) => (
-            <Link to={item.href} className={styles["news-card"]} key={item.title}>
+          {newsItems.map((item, idx) => (
+            <FadeUp
+              as={Link}
+              to={item.href}
+              className={styles["news-card"]}
+              key={item.title}
+              delay={(idx % 3) * 120}
+            >
               <div className={styles["news-card__img-wrap"]}>
                 <img src={item.img} alt={item.title} className={styles["news-card__img"]} />
                 {item.isNew && <span className={styles["news-card__badge"]}>New</span>}
@@ -41,7 +49,7 @@ export default function News() {
                   </svg>
                 </span> Know more
               </span>
-            </Link>
+            </FadeUp>
           ))}
         </div>
       </section>

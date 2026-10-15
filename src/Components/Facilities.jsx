@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Facilities.module.css";
 import Cta from "./Cta";
+import FadeUp from "./FadeUp";
 
 import heroImg from "../assets/images/facilities-hero.jpg";
 import amenitiesImg from "../assets/images/facilities-amenities.jpg";
@@ -13,7 +14,7 @@ import computerImg from "../assets/images/lab-computer.png";
 import neuroImg from "../assets/images/lab-neuro.jpg";
 import electrotherapyImg from "../assets/images/lab-electrotherapy.png";
 import canteenImg from "../assets/images/facility-canteen.png";
-import transportImg from "../assets/images/facility-transport.png";
+import transportImg from "../assets/images/facility-transport.jpg";
 import hostelImg from "../assets/images/facility-hostel.jpg";
 import libraryImg from "../assets/images/facility-library.png";
 
@@ -53,7 +54,7 @@ const facilities = [
     img: exerciseImg,
   },
   {
-    title: "Computer Lab",
+    title: "Digital Library",
     desc: "Computer Centre provides the students with hands on experience in state-of-the-art technology. The college has well equipped computer lab with Pentium based computers and latest software required for teaching and research.",
     img: computerImg,
   },
@@ -92,23 +93,21 @@ export default function Facilities() {
       <section className={styles.hero}>
         <img src={heroImg} alt="Faculty demonstrating clinical equipment" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
-        <div className={styles["hero__inner"]}>
-          <div className={styles["hero__content"]}>
-            <h1>
-              Facilities of Mother Terasa College
+        <FadeUp className={styles["hero__content"]}>
+          <h1>
+            Facilities of Mother Terasa College
             <span> of Physiotherapy</span>
-            </h1>
-            <p>
-              Experience a modern learning environment equipped with advanced
-              laboratories, clinical training facilities to support academic
-              excellence and professional growth.
-            </p>
-          </div>
-        </div>
+          </h1>
+          <p>
+            Experience a modern learning environment equipped with advanced
+            laboratories, clinical training facilities to support academic
+            excellence and professional growth.
+          </p>
+        </FadeUp>
       </section>
 
       {/* QUICK LINKS BAR */}
-      <nav className={styles["quicklinks"]} aria-label="Facility categories">
+      <FadeUp as="nav" className={styles["quicklinks"]} aria-label="Facility categories">
         <div className={styles["quicklinks__track"]}>
           {[...quickLinks, ...quickLinks].map((label, idx) => (
             <span key={`track1-${label}-${idx}`} className={styles["quicklinks__item"]}>
@@ -123,11 +122,11 @@ export default function Facilities() {
             </span>
           ))}
         </div>
-      </nav>
+      </FadeUp>
 
       {/* STUDENT AMENITIES */}
       <section className={styles["amenities-section"]}>
-        <div className={styles["amenities-card"]}>
+        <FadeUp className={styles["amenities-card"]}>
           <img src={amenitiesImg} alt="Faculty demonstrating equipment to a student" className={styles["amenities-card__img"]} />
           <div className={styles["amenities-card__content"]}>
             <span className={styles["section-eyebrow"]}>Student Amenities</span>
@@ -141,31 +140,33 @@ export default function Facilities() {
               progammes.
             </p>
             <div className={styles["amenities-card__stats"]}>
-              {amenityStats.map((s) => (
-                <div className={styles["amenities-stat"]} key={s.label}>
-                  <span className={styles["amenities-stat__value"]}>{s.value}</span>
-                  <span className={styles["amenities-stat__label"]}>{s.label}</span>
-                </div>
+              {amenityStats.map((s, idx) => (
+                <FadeUp delay={idx * 180} key={s.label}>
+                  <div className={styles["amenities-stat"]}>
+                    <span className={styles["amenities-stat__value"]}>{s.value}</span>
+                    <span className={styles["amenities-stat__label"]}>{s.label}</span>
+                  </div>
+                </FadeUp>
               ))}
             </div>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* FACILITY LIST */}
       <section className={styles["list-section"]}>
-        <div className={styles["list-section__heading"]}>
+        <FadeUp className={styles["list-section__heading"]}>
           <h2 className={styles["section-title"]}>Comprehensive Facilities</h2>
           <p className={styles["section-subtitle"]}>
             Gain real-world clinical exposure and hands-on training through
             advanced labs, simulations, and healthcare-based practical
             sessions.
           </p>
-        </div>
+        </FadeUp>
 
         <div className={styles["facility-rows"]}>
           {facilities.map((f, idx) => (
-            <div
+            <FadeUp
               id={f.title.toLowerCase().replace(/\s+/g, "-")}
               key={f.title}
               className={`${styles["facility-row"]} ${idx % 2 === 0 ? styles["facility-row--reverse"] : ""
@@ -176,7 +177,7 @@ export default function Facilities() {
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>
               </div>
-            </div>
+            </FadeUp>
           ))}
         </div>
       </section>

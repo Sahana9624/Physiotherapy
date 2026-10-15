@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { newsItems } from "../data/newsData";
 import styles from "../Styles/NewsDetail.module.css";
 import Cta from "./Cta";
+import FadeUp from "./FadeUp";
 
 export default function NewsDetail() {
   const { slug } = useParams();
@@ -16,17 +17,19 @@ export default function NewsDetail() {
   return (
     <main className={styles.newsDetail}>
       <section className={styles.header}>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span aria-hidden="true">›</span>
-          <Link to="/news" className={styles.active}>News and Events</Link>
-        </nav>
-        <h1>{newsItem.title}</h1>
-        <p>Campus Updates &amp; Highlights</p>
+        <FadeUp>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">›</span>
+            <Link to="/news" className={styles.active}>News and Events</Link>
+          </nav>
+          <h1>{newsItem.title}</h1>
+          <p>Campus Updates &amp; Highlights</p>
+        </FadeUp>
       </section>
 
       <section className={styles.contentSection}>
-        <div className={styles.newsCard}>
+        <FadeUp className={styles.newsCard}>
           <div className={styles.imageWrapper}>
             <img src={newsItem.img} alt={newsItem.title} />
           </div>
@@ -38,7 +41,7 @@ export default function NewsDetail() {
               {newsItem.description}
             </div>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       <Cta />

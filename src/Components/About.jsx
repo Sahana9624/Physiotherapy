@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/About.module.css";
 import Cta from "./Cta";
+import FadeUp from "./FadeUp";
 
 import aboutHeroImg from "../assets/images/about-hero.jpg";
 import purposeImg from "../assets/images/about-purpose.jpg";
@@ -12,50 +13,27 @@ import chairmanImg from "../assets/images/chairman.jpg";
 import principalImg from "../assets/images/principal.jpg";
 
 export default function About() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-          } else {
-            entry.target.classList.remove(styles.visible);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    const elements = document.querySelectorAll(`.${styles["fade-up"]}`);
-    elements.forEach((el) => observer.observe(el));
-
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
   return (
     <main className={styles.about}>
       {/* HERO */}
       <section className={styles.hero}>
         <img src={aboutHeroImg} alt="MTCP students examining a spine model" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
-        <div className={styles["hero__content"]}>
+        <FadeUp className={styles["hero__content"]}>
           <h1>
-            About Mother Terasa College<span>
-            <br /> of Physiotherapy</span>
+            About Mother Terasa College <span>Of Physiotherapy</span>
           </h1>
           <p>
             The establishment of Mother Terasa Physiotherapy College in 2020
             mark a significant milestone in the journey of the Mother Terasa
             Group of Institution at Pudukkottai.
           </p>
-        </div>
+        </FadeUp>
       </section>
 
       {/* OUR PURPOSE */}
       <section className={styles["purpose-section"]}>
-        <div className={styles["purpose-card"]}>
+        <FadeUp className={styles["purpose-card"]}>
           <img
             src={purposeImg}
             alt="Faculty guiding students with anatomy model"
@@ -73,13 +51,13 @@ export default function About() {
               Kalam Educational Charitable Trust.
             </p>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* OUR VISION */}
       <section className={styles["vision-section"]}>
         <div className={styles["vision-section__inner"]}>
-          <div className={styles["vision-card"]}>
+          <FadeUp direction="left" duration={850} className={styles["vision-card"]}>
             <h2>Our Vision</h2>
             <p>
               &ldquo;To ignite a global movement in physiotherapy education
@@ -88,24 +66,28 @@ export default function About() {
               the future of movement science with integrity, innovation, and
               impact.&rdquo;
             </p>
-          </div>
-          <img
-            src={visionImg}
-            alt="Mother Terasa College of Physiotherapy campus building"
-            className={styles["vision-section__img"]}
-          />
+          </FadeUp>
+          <FadeUp duration={850} className={styles["vision-section__img-wrap"]}>
+            <img
+              src={visionImg}
+              alt="Mother Terasa College of Physiotherapy campus building"
+              className={styles["vision-section__img"]}
+            />
+          </FadeUp>
         </div>
       </section>
 
       {/* OUR MISSION */}
       <section className={styles["mission-section"]}>
         <div className={styles["mission-section__inner"]}>
-          <img
-            src={missionImg}
-            alt="Faculty member assisting student with equipment"
-            className={styles["mission-section__img"]}
-          />
-          <div className={styles["mission-card"]}>
+          <FadeUp duration={850} className={styles["mission-section__img-wrap"]}>
+            <img
+              src={missionImg}
+              alt="Faculty member assisting student with equipment"
+              className={styles["mission-section__img"]}
+            />
+          </FadeUp>
+          <FadeUp direction="right" duration={850} className={styles["mission-card"]}>
             <h2>Our Mission</h2>
             <p>
               &ldquo;Our mission is to educate and empower future
@@ -115,28 +97,30 @@ export default function About() {
               movement, enhancing function, and transforming lives across
               diverse communities.&rdquo;
             </p>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
       {/* LEADERSHIP */}
       <section className={styles["leadership-section"]}>
-        <h2 className={`${styles["section-title"]} ${styles["section-title--light"]}`}>
-          Leadership That Inspires Excellence
-        </h2>
-        <p className={`${styles["section-subtitle"]} ${styles["section-subtitle--light"]}`}>
-          Our leadership is committed to fostering an environment where
-          knowledge, innovation, and practical learning empower every
-          student to succeed.
-        </p>
+        <FadeUp>
+          <h2 className={`${styles["section-title"]} ${styles["section-title--light"]}`}>
+            Leadership That Inspires Excellence
+          </h2>
+          <p className={`${styles["section-subtitle"]} ${styles["section-subtitle--light"]}`}>
+            Our leadership is committed to fostering an environment where
+            knowledge, innovation, and practical learning empower every
+            student to succeed.
+          </p>
+        </FadeUp>
 
-        <div className={styles["leader-card"]}>
-          <div className={`${styles["leader-card__photo-wrap"]} ${styles["fade-up"]}`}>
+        <FadeUp className={styles["leader-card"]}>
+          <div className={styles["leader-card__photo-wrap"]}>
             <img src={founderImg} alt="Shri R. Chinnathambi" className={styles["leader-card__photo"]} />
             <p className={styles["leader-card__name"]}>Shri R.Chinnathambi</p>
             <p className={styles["leader-card__role"]}>Founder</p>
           </div>
-          <div className={`${styles["leader-card__content"]} ${styles["fade-up"]}`}>
+          <div className={styles["leader-card__content"]}>
             <h3>Founder of Mother Terasa Educational &amp; Charitable Trust</h3>
             <p>
               Love cannot remain by itself - it has no meaning. Love has to
@@ -157,10 +141,10 @@ export default function About() {
               of Institutions for generations to come.
             </p>
           </div>
-        </div>
+        </FadeUp>
 
-        <div className={`${styles["leader-card"]} ${styles["leader-card--reverse"]}`}>
-          <div className={`${styles["leader-card__content"]} ${styles["fade-up"]} ${styles["fade-up--delay"]}`}>
+        <FadeUp className={`${styles["leader-card"]} ${styles["leader-card--reverse"]}`}>
+          <div className={styles["leader-card__content"]}>
             <h3>Chairman of Mother Terasa Educational &amp; Charitable Trust</h3>
             <p>
               Mother Terasa Group of Institutions has been pioneering an
@@ -171,13 +155,13 @@ export default function About() {
               country.
             </p>
             <p>
-             The 21st century brings with it a highly dynamic and unpredictable work environment, 
-             consequently necessitating a huge shift in the education model. In alignment with 
-             exponential changes in the higher education, the Mother Terasa Group of institutions 
-             continues to strengthen its academic portfolio through an intensive research of 
-             studying best practices across top global institutes and demonstrates exemplary 
-             standards with cutting-edge technology-enabled programs, state-of-the-art architecture, 
-             and multiple facets of student centered events as its defining characters.
+              The 21st century brings with it a highly dynamic and unpredictable work environment,
+              consequently necessitating a huge shift in the education model. In alignment with
+              exponential changes in the higher education, the Mother Terasa Group of institutions
+              continues to strengthen its academic portfolio through an intensive research of
+              studying best practices across top global institutes and demonstrates exemplary
+              standards with cutting-edge technology-enabled programs, state-of-the-art architecture,
+              and multiple facets of student centered events as its defining characters.
             </p>
             <p>
               Enabling productive employment remains its primary focus and
@@ -191,20 +175,20 @@ export default function About() {
               equal opportunity to develop our talents – Abdul Kalam.
             </p>
           </div>
-          <div className={`${styles["leader-card__photo-wrap"]} ${styles["fade-up"]}`}>
+          <div className={styles["leader-card__photo-wrap"]}>
             <img src={chairmanImg} alt="Mr. R.C. Uthayakumar" className={styles["leader-card__photo"]} />
             <p className={styles["leader-card__name"]}>Mr.R.C.Uthayakumar B.A</p>
             <p className={styles["leader-card__role"]}>Chairman</p>
           </div>
-        </div>
+        </FadeUp>
 
-        <div className={styles["leader-card"]}>
-          <div className={`${styles["leader-card__photo-wrap"]} ${styles["fade-up"]}`}>
+        <FadeUp className={styles["leader-card"]}>
+          <div className={styles["leader-card__photo-wrap"]}>
             <img src={principalImg} alt="Prof. R. Anbu Dhanabalan" className={styles["leader-card__photo"]} />
             <p className={styles["leader-card__name"]}>Prof. R. Anbu Dhanabalan</p>
             <p className={styles["leader-card__role"]}>Principal</p>
           </div>
-          <div className={`${styles["leader-card__content"]} ${styles["fade-up"]} ${styles["fade-up--delay"]}`}>
+          <div className={styles["leader-card__content"]}>
             <h3>Principal of Mother Terasa College Of Physiotherapy</h3>
             <p>
               Welcome to our esteemed physiotherapy college, where we
@@ -232,7 +216,7 @@ export default function About() {
               physiotherapy practice, research, and education.
             </p>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* CTA */}

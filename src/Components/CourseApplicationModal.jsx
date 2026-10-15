@@ -182,7 +182,7 @@ export default function CourseApplicationModal({ isOpen, onClose }) {
 
           <div className={styles.content}>
             <h2>Bachelor of Physiotherapy</h2>
-            <p className={styles.subtitle}>Duration - 3 Years</p>
+            <p className={styles.subtitle}>Duration - 5 Years</p>
 
             <form onSubmit={handleSubmit} className={styles.form} noValidate>
               <div className={styles.grid}>

@@ -13,8 +13,6 @@
   --color-white: #ffffff;
   --radius-md: 12px;
   --radius-lg: 20px;
-  --section-pad-y: clamp(2.5rem, 6vw, 5rem);
-  --section-pad-x: clamp(1.25rem, 6vw, 5rem);
   --max-width: 100%;
 
   font-family: "Outfit", sans-serif;
@@ -32,7 +30,7 @@
   display: inline-block;
   background: var(--color-bg-light);
   color: var(--color-blue-accent);
-  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 0.889vw, 0.8rem);
   font-weight: 600;
   padding: 0.35rem 1rem;
   border-radius: 999px;
@@ -40,7 +38,7 @@
 }
 
 .section-title {
-  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.3rem);
   font-weight: 700;
   color: var(--color-navy);
   text-align: center;
@@ -50,7 +48,7 @@
 .section-subtitle {
   text-align: center;
   color: var(--color-text-muted);
-  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   max-width: 640px;
   margin: 0 auto;
   line-height: 1.6;
@@ -63,7 +61,7 @@
   padding: 0.85rem 1.5rem;
   border-radius: var(--radius-md);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 1.056vw, 0.95rem);
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -81,7 +79,7 @@
 
 .header {
   background: linear-gradient(180deg, #ECF3F8 0%, #FFFFFF 100%);
-  padding: clamp(2rem, 5vw, 3.5rem) var(--section-pad-x) clamp(0.5rem, 5.5vw, 4.5rem);
+  padding: clamp(2rem, 5vw, 3.5rem) var(--global-padding-x) clamp(0.5rem, 5.5vw, 4.5rem);
   text-align: center;
 }
 
@@ -92,7 +90,7 @@
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   color: var(--color-navy);
   font-weight: 400;
 }
@@ -107,7 +105,7 @@
 }
 
 .header h1 {
-  font-size: 32px;
+  font-size: clamp(24px, 2.5vw, 32px);
   font-weight: 500;
   color: var(--color-navy);
   margin: 1.25rem;
@@ -115,7 +113,7 @@
 
 .header p {
   color: var(--color-text-muted);
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
   margin-bottom: 0;
 }
@@ -126,11 +124,11 @@
 
 .grid-section {
   background: linear-gradient(0deg, #FFFFFF 0%, #F1F6FA 100%);
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: var(--global-padding-y) var(--global-padding-x);
 }
 
 .news-grid {
-  max-width: var(--max-width);
+  max-width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -160,14 +158,14 @@
   bottom: 0;
   background: var(--color-white);
   color: var(--color-navy);
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
   padding: 0.3rem 1.5rem;
   border-radius: 16px 16px 0 16px;
 }
 
 .news-card h2 {
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
   color: #3B3B3B;
   margin: 0 0 0.35rem;
@@ -176,13 +174,13 @@
 
 .news-card__date {
   color: #3B3B3B;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   margin: 0 0 0.75rem;
 }
 
 .news-card__excerpt {
   color: var(--color-text-muted);
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.65;
   margin: 0 0 1rem;
   flex: 1;
@@ -193,7 +191,7 @@
   align-items: center;
   gap: 0.4rem;
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   color: #122056;
   text-decoration: none;
   position: relative;
@@ -215,7 +213,7 @@
   left: 0;
   bottom: 0;
   width: 0;
-  height: 1.5px;
+  height: clamp(0.09375rem, 0.104vw, 0.09375rem);
   background-color: var(--color-blue-accent);
   transition: width 0.3s ease;
 }
@@ -241,7 +239,7 @@
 
   .news-grid,
   .cta-card {
-    max-width: 1320px;
+    max-width: 100%;
   }
 }
 
@@ -253,37 +251,37 @@
 
 @media (max-width: 767px) {
   .news-card__img {
-    height: 250px;
+    height: clamp(200px, 65vw, 228px);
     object-fit: cover;
   }
 
   .header h1 {
-    font-size: 24px;
+    font-size: clamp(24px, 2vw, 24px);
   }
 
   .header p {
-    font-size: 18px;
+    font-size: clamp(20px, 1.8vw, 20px);
   }
 
   .breadcrumb {
-    font-size: 18px;
+    font-size: clamp(20px, 1.8vw, 20px);
   }
 
   .news-card__badge {
-    font-size: 16px;
+    font-size: clamp(20px, 1.5vw, 20px);
   }
 
   .news-card h2 {
-    font-size: 20px;
+    font-size: clamp(20px, 1.8vw, 20px);
   }
 
   .news-card__date,
   .news-card__excerpt {
-    font-size: 16px;
+    font-size: clamp(18px, 1.5vw, 18px);
   }
 
   .news-card__link {
-    font-size: 18px;
+    font-size: clamp(20px, 1.8vw, 20px);
   }
 }
 
@@ -319,8 +317,6 @@
    ========================================================================== */
 @media (max-width: 767px) {
   .news {
-    --section-pad-x: 0.85rem;
-    --section-pad-y: 1.5rem;
   }
   .news-grid {
     gap: 3rem;

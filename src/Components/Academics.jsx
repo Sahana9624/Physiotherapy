@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Academics.module.css";
 import Cta from "./Cta";
+import FadeUp from "./FadeUp";
 
-import heroImg from "../assets/images/academics-hero.png";
+import heroImg from "../assets/images/academics-hero.jpg";
 import highlightImg from "../assets/images/academics-highlight.jpg";
 
 import handsOnIcon from "../assets/icons/teaching.svg";
@@ -58,50 +59,50 @@ export default function Academics() {
         <img src={heroImg} alt="Faculty teaching anatomy with skeleton model" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
         
-        <div className={styles["hero__inner"]}>
-          <div className={styles["hero__content"]}>
-            <h1>Building Strong Foundations in <span>Physiotherapy Education</span></h1>
-            <p>
-              Build a successful healthcare career through advanced
-              physiotherapy education, practical training, and expert
-              mentorship.
-            </p>
-            <a 
-              href="#enroll-section" 
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('enroll-section')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className={`${styles.btn} ${styles["btn--primary"]}`}
-            >
-              Explore Programs <span className={styles["btn-arrow"]} aria-hidden="true"></span>
-            </a>
-          </div>
-        </div>
+        <FadeUp className={styles["hero__content"]}>
+          <h1>Building Strong Foundations in <span>Physiotherapy Education</span></h1>
+          <p>
+            Build a successful healthcare career through advanced
+            physiotherapy education, practical training, and expert
+            mentorship.
+          </p>
+          <a 
+            href="#enroll-section" 
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('enroll-section')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className={`${styles.btn} ${styles["btn--primary"]}`}
+          >
+            Explore Programs <span className={styles["btn-arrow"]} aria-hidden="true"></span>
+          </a>
+        </FadeUp>
       </section>
 
       {/* ACADEMIC EXCELLENCE STAT CARD */}
-        <div className={styles["stat-card"]}>
-          <div className={styles["stat-card__intro"]}>
-            <h2>Academic Excellence</h2>
-            <p>
-              Delivering quality physiotherapy education with practical
-              learning and professional development.
-            </p>
-          </div>
-          <div className={styles["stat-card__grid"]}>
-            {stats.map((s) => (
-              <div className={styles["stat-card__item"]} key={s.label}>
+      <div className={styles["stat-card"]}>
+        <FadeUp className={styles["stat-card__intro"]}>
+          <h2>Academic Excellence</h2>
+          <p>
+            Delivering quality physiotherapy education with practical
+            learning and professional development.
+          </p>
+        </FadeUp>
+        <div className={styles["stat-card__grid"]}>
+          {stats.map((s, idx) => (
+            <FadeUp delay={idx * 220} key={s.label} style={{ height: "100%", width: "100%" }}>
+              <div className={styles["stat-card__item"]}>
                 <span className={styles["stat-card__value"]}>{s.value}</span>
                 <span className={styles["stat-card__label"]}>{s.label}</span>
               </div>
-            ))}
-          </div>
+            </FadeUp>
+          ))}
+        </div>
       </div>
 
       {/* ENROLL / PROGRAM */}
       <section id="enroll-section" className={styles["enroll-section"]}>
-        <div className={styles["enroll-card"]}>
+        <FadeUp className={styles["enroll-card"]}>
           <h2>
             Enroll in Our <strong>Bachelor of Physiotherapy</strong> Program
           </h2>
@@ -113,19 +114,19 @@ export default function Academics() {
           <div className={styles["program-row"]}>
             <div className={styles["program-row__info"]}>
               <span className={styles["program-row__title"]}>Bachelor of Physiotherapy</span>
-              <span className={styles["program-row__duration"]}>Duration : 5 Years + 1 Year Internship</span>
+              <span className={styles["program-row__duration"]}>Duration : 4 Years + 1 Year Internship</span>
             </div>
             <Link to="/course-description" className={styles["program-row__btn"]}>
               Know More
             </Link>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* PROGRAM HIGHLIGHTS */}
       <section className={styles["highlights-wrap"]}>
         <div className={styles["highlights-card"]}>
-          <div className={styles["highlights-card__heading"]}>
+          <FadeUp className={styles["highlights-card__heading"]}>
             <span className={styles["section-eyebrow"]}>Program Highlights</span>
             <h2 className={styles["section-title"]}>A Comprehensive Learning Experience</h2>
             <p className={styles["section-subtitle"]}>
@@ -133,18 +134,20 @@ export default function Academics() {
               advanced labs, simulations, and healthcare-based practical
               sessions.
             </p>
-          </div>
+          </FadeUp>
 
           <div className={styles["highlights-grid"]}>
-            <img
-              src={highlightImg}
-              alt="Students examining an anatomical heart model"
-              className={styles["highlights-grid__img"]}
-            />
+            <FadeUp className={styles["highlights-grid__img-wrap"]} style={{ height: "100%" }}>
+              <img
+                src={highlightImg}
+                alt="Students examining an anatomical heart model"
+                className={styles["highlights-grid__img"]}
+              />
+            </FadeUp>
 
             <ul className={styles["highlights-list"]}>
-              {highlights.map((h) => (
-                <li className={styles["highlights-list__item"]} key={h.title}>
+              {highlights.map((h, idx) => (
+                <FadeUp as="li" delay={idx * 120} className={styles["highlights-list__item"]} key={h.title}>
                   <span className={styles["highlights-list__icon"]} aria-hidden="true">
                     <img src={h.icon} alt={h.title} className={styles["icon-normal"]} />
                     <img src={h.hoverIcon} alt={h.title} className={styles["icon-hover"]} />
@@ -153,7 +156,7 @@ export default function Academics() {
                     <h3>{h.title}</h3>
                     <p>{h.desc}</p>
                   </div>
-                </li>
+                </FadeUp>
               ))}
             </ul>
           </div>

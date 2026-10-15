@@ -37,7 +37,7 @@
 
 .hero__bg {
   width: 100%;
-  height: clamp(560px, 58vw, 700px);
+  height: clamp(27.5rem, 85vh, 60rem);
   object-fit: cover;
 }
 
@@ -46,8 +46,8 @@
   z-index: 1;
   max-width: var(--max-width);
   width: 90%;
-  margin: -15rem auto 0;
-  max-height: 287px;
+  margin: -10rem auto 0;
+  min-height: clamp(12.556rem, 19.931vw, 17.9375rem);
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: 0 16px 40px rgba(12, 27, 77, 0.12);
@@ -62,7 +62,7 @@
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
   color: #6C6C6C;
 }
@@ -82,7 +82,7 @@
 }
 
 .header-card h1 {
-  font-size: 28px;
+  font-size: clamp(24px, 2.5vw, 28px);
   font-weight: 500;
   color: #122056;
   margin: 0 0 1.5rem;
@@ -96,7 +96,7 @@
   flex-wrap: wrap;
   color: #6C6C6C;
   font-weight: 400;
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   margin-bottom: 2.5rem;
 }
 
@@ -111,7 +111,7 @@
   background: #122056;
   color: var(--color-white);
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-md);
   text-decoration: none;
@@ -148,13 +148,13 @@
 .details-grid__img {
   width: 445px;
   max-width: 100%;
-  height: 351px;
+  height: auto;
   object-fit: cover;
   border-radius: 18px;
 }
 
 .details-grid__content h2 {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 400;
   color: #122056;
   margin: clamp(1.75rem, 4vw, 2.5rem) 0 1rem;
@@ -177,7 +177,7 @@
   position: relative;
   padding-left: 1.25rem;
   color: #6C6C6C;
-  font-size: 24px;
+  font-size: clamp(16px, 1.8vw, 24px);
   font-weight: 400;
   line-height: 1.45;
 }
@@ -216,7 +216,7 @@
 
   .details-grid__img {
     flex: 0 0 445px;
-    height: 351px;
+    height: auto;
     position: sticky;
     top: 180px;
   }
@@ -230,7 +230,7 @@
 
   .header-card,
   .details-grid {
-    max-width: 1320px;
+    max-width: 100%;
   }
 }
 
@@ -243,7 +243,7 @@
 /* ==========================================================================
    MOBILE & HOVER STATES (Restored & Updated)
    ========================================================================== */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 
   /* HERO */
   .hero {
@@ -257,7 +257,8 @@
   }
 
   .header-card {
-    margin: -20rem 0.85rem 0;
+    max-width: none;
+    margin: -20rem var(--global-padding-x) 0;
     width: auto;
     max-height: none;
     padding: 1.5rem;
@@ -266,20 +267,20 @@
   }
 
   .breadcrumb {
-    font-size: 20px;
     margin-bottom: 1rem;
+    font-size: 20px;
   }
 
   .header-card h1 {
-    font-size: 26px;
     margin-bottom: 1rem;
+    font-size: 24px;
   }
 
   .header-card__meta {
-    font-size: 20px;
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    font-size: 18px;
   }
 
   .apply-btn {
@@ -291,22 +292,25 @@
 
   /* DETAILS SECTION */
   .details-section {
-    padding: 2rem 0.85rem;
+    padding: 1rem var(--global-padding-x) 2rem;
   }
 
   .details-grid {
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .details-grid__img {
-    height: 350px;
+    width: 100%;
+    height: 351px;
+    object-fit: cover;
+    object-position: top center;
     border-radius: 12px;
   }
 
   .details-grid__content h2 {
-    font-size: 20px;
     font-weight: 500;
     margin: 1.5rem 0 1rem;
+    font-size: 20px;
   }
 
   .details-grid__content h2:first-child {
@@ -318,8 +322,8 @@
   }
 
   .bullet-list li {
-    font-size: 20px;
     line-height: 1.6;
+    font-size: 20px;
   }
 
   .course {

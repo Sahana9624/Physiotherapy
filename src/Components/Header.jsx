@@ -19,16 +19,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [menuOpen]);
+
 
   return (
     <div className={styles.headerWrapper}>

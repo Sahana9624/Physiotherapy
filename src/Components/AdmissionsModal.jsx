@@ -165,7 +165,7 @@ export default function AdmissionsModal({ isOpen, onClose }) {
           <div className={styles.content}>
             <div className={styles.leftPanel}>
               <h2>Admissions Open for <span>2026-2027</span></h2>
-              <p>Limited seats available—apply now to secure your place in our prestigious law programs.</p>
+              <p>Limited seats available—apply now to secure your place in our prestigious physiotherapy programs.</p>
 
               <div className={styles.imageWrapper}>
                 <img src={modalImg} alt="Student" />

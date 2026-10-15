@@ -7,8 +7,7 @@
   background-size: 18px 18px;
   font-family: "Outfit", sans-serif;
   color: #ffffff;
-  height: 500px;
-  padding: 0 var(--section-pad-x, clamp(1.25rem, 6vw, 5rem));
+  padding: 0 var(--global-padding-x, clamp(1.25rem, 6vw, 5rem));
 }
 
 .footer a {
@@ -21,7 +20,7 @@
 /* ---------------------------------------------------------------------- */
 
 .footer__top {
-  max-width: var(--max-width, 100%);
+  max-width: 100%;
   margin: 0 auto;
   padding: 3.5rem 0 1.5rem;
   display: grid;
@@ -39,7 +38,7 @@
 
 .brand__logo {
   width: 70.45px;
-  height: 68.77px;
+  height: clamp(3.009rem, 4.776vw, 4.298125rem);
   object-fit: contain;
   flex-shrink: 0;
   border-radius: 50%;
@@ -52,27 +51,28 @@
 }
 
 .brand__name {
-  font-size: 26px;
+  font-size: clamp(1.5rem, 1.75rem, 1.8rem);
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05rem;
 }
 
 .brand__tagline {
-  font-size: 14.85px;
+  font-size: clamp(0.8rem, 1rem, 1.5rem);
   font-weight: 400;
   color: #D1D1D1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02rem;
 }
 
 .brand__affiliation {
-  font-size: 9.56px;
+  font-size: clamp(0.5rem, 0.62rem, 1rem);
   font-weight: 400;
   color: #C1A400;
   margin-top: 0.15rem;
+  letter-spacing: -0.02rem;
 }
 
 .footer__desc {
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   font-weight: 400;
   line-height: 1.7;
   color: #FFFFFF;
@@ -92,7 +92,7 @@
 
 .footer__social a {
   width: 40px;
-  height: 40px;
+  height: clamp(1.75rem, 2.778vw, 2.5rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,52 +120,52 @@
 /* Facebook */
 .footer__social a:nth-child(1) .iconNormal {
   width: 27.47px;
-  height: 32.82px;
+  height: clamp(1.436rem, 2.279vw, 2.05125rem);
   transform: scale(1.6);
 }
 
 .footer__social a:nth-child(1) .iconHover {
   width: 15px;
-  height: 22px;
+  height: clamp(0.962rem, 1.528vw, 1.375rem);
 }
 
 /* LinkedIn */
 .footer__social a:nth-child(2) .iconNormal {
   width: 27px;
-  height: 27px;
+  height: clamp(1.181rem, 1.875vw, 1.6875rem);
 }
 
 .footer__social a:nth-child(2) .iconHover {
   width: 25px;
-  height: 25px;
+  height: clamp(1.094rem, 1.736vw, 1.5625rem);
 }
 
 /* Instagram */
 .footer__social a:nth-child(3) .iconNormal {
   width: 25px;
-  height: 25px;
+  height: clamp(1.094rem, 1.736vw, 1.5625rem);
 }
 
 .footer__social a:nth-child(3) .iconHover {
   width: 25px;
-  height: 25px;
+  height: clamp(1.094rem, 1.736vw, 1.5625rem);
 }
 
 /* Twitter */
 .footer__social a:nth-child(4) .iconNormal {
   width: 40px;
-  height: 40px;
+  height: clamp(1.75rem, 2.778vw, 2.5rem);
 }
 
 .footer__social a:nth-child(4) .iconHover {
   width: 18px;
-  height: 18px;
+  height: clamp(0.875rem, 1.25vw, 1.125rem);
 }
 
 /* Quick links / contact columns */
 
 .footer__col h3 {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 500;
   margin: 0 0 1.5rem;
   color: #ffffff;
@@ -181,7 +181,7 @@
 }
 
 .footer__col ul li a {
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   font-weight: 400;
   color: #FFFFFF;
   text-decoration: none;
@@ -194,7 +194,7 @@
   left: 0;
   bottom: -2.5px;
   width: 0;
-  height: 1.5px;
+  height: clamp(0.09375rem, 0.104vw, 0.09375rem);
   background-color: #ffffff;
   transition: width 0.3s ease;
 }
@@ -204,7 +204,7 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   font-weight: 400;
   line-height: 1.6;
   color: #FFFFFF;
@@ -213,7 +213,7 @@
 
 .icon-wrap {
   width: 24px;
-  height: 24px;
+  height: clamp(1.05rem, 1.667vw, 1.5rem);
   flex-shrink: 0;
   margin-top: 0.1rem;
   color: #FFFFFF;
@@ -229,7 +229,7 @@
 /* ---------------------------------------------------------------------- */
 
 .footer__bottom {
-  max-width: var(--max-width, 100%);
+  max-width: 100%;
   margin: 0 auto;
   border-top: none;
   padding: 0 0 2.5rem;
@@ -255,13 +255,13 @@
 }
 
 .legal-links a {
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 400;
   color: #FBFAFA;
 }
 
 .copyright {
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 400;
   color: #FBFAFA;
   margin: 0;
@@ -281,12 +281,12 @@
 
   .footer__top,
   .footer__bottom {
-    max-width: 1320px;
+    max-width: 100%;
   }
 }
 
 .footerCourse {
-  height: 170px;
+  height: clamp(7.437rem, 11.806vw, 10.625rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,37 +315,61 @@
   }
 
   .footer__col:nth-child(3) {
-    order: 2; /* Contact us */
+    order: 2;
+    /* Contact us */
   }
 
   .footer__col:nth-child(2) {
-    order: 3; /* Quick Links */
+    order: 3;
+    /* Quick Links */
+  }
+
+  .brand__logo {
+    width: clamp(50px, 15vw, 70px);
+    height: clamp(48px, 14vw, 68px);
   }
 
   .brand__name {
-    font-size: 24px;
+    font-size: clamp(24px, 2vw, 24px);
+    letter-spacing: 0.1em;
   }
 
   .brand__tagline {
-    font-size: 14px;
+    font-size: clamp(14px, 1vw, 21px);
+    letter-spacing: 0.07em;
   }
 
   .brand__affiliation {
-    font-size: 9px;
+    font-size: clamp(10px, 0.8vw, 13.5px);
   }
 
   .footer__desc {
-    font-size: 18px;
+    font-size: clamp(20px, 1.8vw, 20px);
   }
 
   .footer__col h3 {
-    font-size: 24px;
+    font-size: clamp(24px, 2vw, 24px);
     margin: 0 0 1.5rem;
   }
 
   .footer__col ul li a,
   .contact-list li {
-    font-size: 18px;
+    font-size: clamp(20px, 1.8vw, 20px);
+  }
+
+  .footer__social a {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer__social a .iconNormal,
+  .footer__social a .iconHover {
+    transform: scale(1.5);
+  }
+
+  .icon-wrap {
+    width: 32px;
+    height: 32px;
   }
 
   .legal-links {
@@ -357,17 +381,17 @@
     width: 100%;
   }
 
-  .legal-title{
-    font-size: 24px !important;
+  .legal-title {
+    font-size: clamp(24px, 2vw, 36px) !important;
   }
 
   .legal-links a {
-    font-size: 18px;
+    font-size: clamp(20px, 1.8vw, 20px);
     text-align: center;
   }
 
   .copyright {
-    font-size: 16px;
+    font-size: clamp(18px, 1.5vw, 18px);
     text-align: center;
     max-width: 360px;
     line-height: 1.5;
@@ -402,6 +426,7 @@
 }
 
 @media (max-width: 767px) {
+
   /* Disable hover animations in mobile view explicitly */
   .footer__social a:hover {
     background-color: transparent;
@@ -426,8 +451,8 @@
 @media (max-width: 767px) {
   .footer__bottom {
     align-items: flex-start;
-    padding-left: var(--section-pad-x);
-    padding-right: var(--section-pad-x);
+    padding-left: var(--global-padding-x);
+    padding-right: var(--global-padding-x);
     padding-bottom: 0;
     text-align: left;
     padding-top: 1rem;
@@ -436,7 +461,7 @@
 
   .legal-title {
     display: block;
-    font-size: 20px;
+    font-size: clamp(24px, 2vw, 24px);
     font-weight: 500;
     color: #FFFFFF;
     margin-bottom: 1.5rem;
@@ -453,7 +478,7 @@
   }
 
   .legal-links a {
-    font-size: 16px;
+    font-size: clamp(20px, 1.8vw, 20px);
   }
 
   .copyright {

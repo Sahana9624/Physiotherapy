@@ -11,12 +11,12 @@
 
 .page-header {
   background: linear-gradient(180deg, #ECF3F8 0%, #FFFFFF 100%);
-  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 6vw, 5rem);
+  padding: clamp(2rem, 5vw, 3.5rem) var(--global-padding-x);
   text-align: center;
 }
 
 .page-header h1 {
-  font-size: 36px;
+  font-size: clamp(28px, 3.5vw, 36px);
   font-weight: 500;
   color: #122056;
   margin: 0 0 0.75rem;
@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
 }
 
@@ -50,9 +50,9 @@
 /* ---------------------------------------------------------------------- */
 
 .content {
-  max-width: 1450px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 6vw, 3rem);
+  padding: clamp(2rem, 5vw, 4rem) var(--global-padding-x);
   display: flex;
   flex-direction: column;
   gap: clamp(2rem, 4vw, 3rem);
@@ -63,7 +63,7 @@
 /* ---------------------------------------------------------------------- */
 
 .section h2 {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 500;
   color: #122056;
   margin: 0 0 1rem;
@@ -87,7 +87,7 @@
   position: relative;
   padding-left: 1rem;
   margin-left: 1.25rem;
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
   line-height: 1.75;
   color: #6C6C6C;
@@ -99,7 +99,7 @@
   left: 0;
   top: 0;
   color: #6C6C6C;
-  font-size: 1.25rem;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
   line-height: 1.5;
 }
 
@@ -124,19 +124,19 @@
    ========================================================================== */
 @media (max-width: 768px) {
   .page-header h1 {
-    font-size: 24px;
+    font-size: clamp(18px, 2vw, 24px);
   }
   
   .breadcrumb {
-    font-size: 18px;
+    font-size: clamp(16px, 1.8vw, 18px);
   }
   
   .section h2 {
-    font-size: 20px;
+    font-size: clamp(16px, 1.8vw, 20px);
   }
   
   .section ul li {
-    font-size: 20px;
+    font-size: clamp(16px, 1.8vw, 20px);
   }
 }
 

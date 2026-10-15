@@ -15,7 +15,7 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --section-pad-y: clamp(2.5rem, 6vw, 5rem);
-  --section-pad-x: clamp(1.25rem, 6vw, 5rem);
+  --section-pad-x: var(--global-padding-x);
   --max-width: 100%;
 
   font-family: "Outfit", sans-serif;
@@ -52,7 +52,7 @@
 
 .contact-card {
   max-width: var(--max-width);
-  margin: clamp(-5.5rem, -9vw, -7rem) auto 0;
+  margin: clamp(-10rem, -5vw, -6rem) auto 0;
   position: relative;
   background: linear-gradient(188.28deg, #ECF3F8 6.35%, #FFFFFF 93.65%);
   border-radius: var(--radius-lg);
@@ -327,7 +327,7 @@
 @media (min-width: 1440px) {
   .contact-card,
   .map-card {
-    max-width: 1320px;
+    max-width: 100%;
   }
 }
 

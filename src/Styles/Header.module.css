@@ -19,14 +19,15 @@
 
 .top-bar {
   background: #0c1b4d;
-  padding: 10px 80px;
-  height: 44px;
+  padding: clamp(8px, 1vw, 10px) var(--global-padding-x);
+  min-height: clamp(30px, 3.5vw, 44px);
+  height: auto;
   display: flex;
   align-items: center;
 }
 
 .top-bar__inner {
-  max-width: 1320px;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -71,16 +72,17 @@
 
 .navbar {
   background: #ffffff;
-  padding: 18px 80px;
+  padding: clamp(10px, 1.5vw, 18px) var(--global-padding-x);
   border-bottom: 1px solid #eef1f8;
-  height: 96px;
+  min-height: clamp(70px, 8vw, 96px);
+  height: auto;
   display: flex;
   align-items: center;
   position: relative;
 }
 
 .navbar__inner {
-  max-width: 1320px;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -114,28 +116,28 @@
 }
 
 .brand__name {
-  font-size: 28px;
+  font-size: clamp(14px, 1.8vw, 28px);
   font-weight: 500;
   color: #122056;
-  letter-spacing: 0.12em;
+  letter-spacing: clamp(0.05em, 0.18vw, 0.12em);
   text-transform: uppercase;
   margin-bottom: 2px;
 }
 
 .brand__tagline {
-  font-size: 16px;
+  font-size: clamp(9px, 1.0vw, 16px);
   font-weight: 400;
   color: #6C6C6C;
-  letter-spacing: 0.10em;
+  letter-spacing: clamp(0.04em, 0.1vw, 0.10em);
   text-transform: uppercase;
   margin-bottom: 3px;
 }
 
 .brand__affiliation {
-  font-size: 8px;
+  font-size: clamp(5px, 0.5vw, 8px);
   font-weight: 500;
   color: #C6A302;
-  letter-spacing: 0.06em;
+  letter-spacing: clamp(0.02em, 0.05vw, 0.05em);
 }
 
 .mobileOnly {
@@ -154,7 +156,7 @@
 .nav__link {
   color: #6C6C6C;
   text-decoration: none;
-  font-size: 20px;
+  font-size: clamp(14px, 1.5vw, 20px);
   font-weight: 400;
   white-space: nowrap;
   position: relative;
@@ -168,7 +170,7 @@
   left: 0;
   bottom: 0;
   width: 0;
-  height: 1.5px;
+  height: 2px;
   background-color: #42D8D8;
   transition: width 0.3s ease;
 }
@@ -178,13 +180,13 @@
 .cta {
   display: none;
   align-items: center;
-  height: 49px;
+  height: clamp(38px, 3.7vw, 49px);
   gap: 0.5rem;
   background: #13C5DD;
   color: #ffffff;
   font-weight: 400;
-  font-size: 20px;
-  padding: 12px 24px;
+  font-size: clamp(14px, 1.5vw, 20px);
+  padding: clamp(8px, 0.9vw, 12px) clamp(12px, 1.8vw, 24px);
   border-radius: 12px;
   border: none;
   text-decoration: none;
@@ -421,7 +423,7 @@
    ========================================================================== */
 @media (hover: hover) {
   .top-bar a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   .nav__link:hover,

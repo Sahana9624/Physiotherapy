@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Termsandconditions.module.css";
+import FadeUp from "./FadeUp";
 
 const sections = [
   {
     title: "Important Note",
     highlight: true,
     items: [
-      "Welcome to Mother Terasa Agriculture College! These terms and conditions outline the rules and regulations for the use of our website and the services offered.",
-      "By accessing this website and using our services, we assume you accept these terms and conditions. Do not continue to use https://www.mtcas.in if you do not agree to all the terms and conditions stated on this page.",
+      "Welcome to Mother Terasa Physiotherapy College! These terms and conditions outline the rules and regulations for the use of our website and the services offered.",
+      "By accessing this website and using our services, we assume you accept these terms and conditions. Do not continue to use https://physiotherapy.ciphermutex.com/ if you do not agree to all the terms and conditions stated on this page.",
     ],
   },
   {
@@ -75,37 +76,41 @@ export default function TermsAndConditions() {
     <main className={styles.page}>
       {/* PAGE HEADER */}
       <section className={styles["page-header"]}>
-        <h1>Terms &amp; Conditions</h1>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span aria-hidden="true">›</span>
-          <span>Terms and Conditions</span>
-        </nav>
+        <FadeUp>
+          <h1>Terms &amp; Conditions</h1>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">›</span>
+            <span>Terms and Conditions</span>
+          </nav>
+        </FadeUp>
       </section>
 
       {/* CONTENT */}
       <section className={styles.content}>
-        {sections.map((section) => (
-          <div
-            className={`${styles.section} ${
-              section.highlight ? styles["section--highlight"] : ""
-            }`}
-            key={section.title}
-          >
-            <h2
-              className={
-                section.highlight ? styles["section__title--highlight"] : ""
-              }
+        <FadeUp>
+          {sections.map((section) => (
+            <div
+              className={`${styles.section} ${
+                section.highlight ? styles["section--highlight"] : ""
+              }`}
+              key={section.title}
             >
-              {section.title}
-            </h2>
-            <ul>
-              {section.items.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+              <h2
+                className={
+                  section.highlight ? styles["section__title--highlight"] : ""
+                }
+              >
+                {section.title}
+              </h2>
+              <ul>
+                {section.items.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </FadeUp>
       </section>
     </main>
   );

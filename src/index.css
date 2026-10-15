@@ -5,6 +5,8 @@
 }
 
 html {
+  /* Fluid typography: True desktop zoom scaling, clamped between 14px (mobile) and 20px (ultrawide) */
+  font-size: clamp(14px, 0.8vw + 6px, 20px);
   scrollbar-width: none;
   -ms-overflow-style: none;
   overscroll-behavior-y: none;
@@ -20,14 +22,13 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: clip;
-  overscroll-behavior-y: none;
+  font-size: 16px;
 }
 
 body {
   min-height: 100vh;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  overscroll-behavior-y: none;
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,7 +43,6 @@ body::-webkit-scrollbar {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overscroll-behavior-y: none;
 }
 
 .wrapper {
@@ -53,20 +53,23 @@ body::-webkit-scrollbar {
 .global-admissions-tab {
   position: fixed;
   right: 0;
-  top: 50%;
-  top: 50svh;
-  /* Prevents jumping on mobile scroll when URL bar hides */
-  transform: translateY(-50%) rotate(180deg);
+  bottom: 20%;
+  bottom: 20svh;
+  /* Maintain the rotation but remove vertical translation since it is no longer centered */
+  transform: rotate(180deg);
   background: #13C5DD;
   color: white;
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(12px, 1.5vw, 20px);
   writing-mode: vertical-rl;
-  padding: 2rem 0.8rem;
+  white-space: nowrap;
+  padding: clamp(1rem, 1.7vw, 2rem) clamp(0.4rem, 0.8vw, 0.8rem);
   border-radius: 0 8px 8px 0;
   z-index: 9999;
   font-family: "Outfit", sans-serif;
   cursor: pointer;
+  width: auto;
+  height: auto;
 }
 
 @media (max-width: 768px) {
@@ -107,5 +110,74 @@ body::-webkit-scrollbar {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+:root {
+  --global-padding-x: 5%;
+  --global-padding-y: clamp(2.5rem, 6vw, 8rem);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --global-padding-x: 5%;
+    --global-padding-y: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL SECTION FADE-UP ANIMATION
+   ========================================================================== */
+.fade-up-box {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(28px);
+  transition-property: opacity, transform !important;
+  transition-duration: var(--fade-duration, 0.75s) !important;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: var(--fade-delay, 0ms) !important;
+  will-change: opacity, transform;
+}
+
+.fade-up-box.fade-direction-left {
+  transform: translateX(-70px);
+}
+
+.fade-up-box.fade-direction-right {
+  transform: translateX(70px);
+}
+
+.fade-up-box.fade-direction-none {
+  transform: none;
+}
+
+.fade-up-box.fade-up-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.fade-up-box.fade-up-done {
+  transition-delay: 0s !important;
+  --fade-delay: 0s !important;
+  transition-property: opacity, transform;
+  transition-duration: 0.4s;
+  will-change: auto;
+}
+
+@media (max-width: 768px) {
+  .fade-up-box.fade-direction-left {
+    transform: translateX(-35px);
+  }
+
+  .fade-up-box.fade-direction-right {
+    transform: translateX(35px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up-box {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

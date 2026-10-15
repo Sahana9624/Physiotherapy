@@ -32,7 +32,7 @@
   display: inline-block;
   background: var(--color-bg-light);
   color: var(--color-blue-accent);
-  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 0.889vw, 0.8rem);
   font-weight: 600;
   padding: 0.35rem 1rem;
   border-radius: 999px;
@@ -49,7 +49,7 @@
 
 .section-title--light {
   color: var(--color-white);
-  font-size: 32px;
+  font-size: clamp(1.4rem, 2.222vw, 2rem);
   font-weight: 400;
 }
 
@@ -64,7 +64,7 @@
 
 .section-subtitle--light {
   color: #FFFFFF;
-  font-size: 24px;
+  font-size: clamp(1.05rem, 1.667vw, 1.5rem);
   font-weight: 400;
   max-width: 950px;
 }
@@ -76,7 +76,7 @@
   padding: 0.85rem 1.5rem;
   border-radius: var(--radius-md);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 1.056vw, 0.95rem);
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -94,11 +94,12 @@
 
 .hero {
   position: relative;
-  min-height: clamp(380px, 50vw, 620px);
+  min-height: clamp(27.5rem, 85vh, 60rem);
+  height: auto;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: var(--section-pad-y) var(--section-pad-x) var(--section-pad-y) clamp(3.5rem, 4vw, 5.5rem);
+  padding: var(--global-padding-y) var(--global-padding-x);
 }
 
 .hero__bg {
@@ -120,26 +121,30 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 16px 22px;
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem 0;
 }
 
 
 .hero__content h1 {
   color: var(--color-navy);
-  font-size: 40px;
+  font-size: clamp(1.75rem, 2.778vw, 2.5rem);
   font-weight: 500;
-  max-width: 640px;
+  max-width: 40rem;
   line-height: 1.25;
   margin: 0 0 1rem;
 }
 
+.hero__content h1 span {
+  font-weight: 600;
+}
+
 .hero__content p {
   color: var(--color-navy);
-  font-size: 26px;
+  font-size: clamp(1.138rem, 1.806vw, 1.625rem);
   font-weight: 400;
-  max-width: 580px;
+  max-width: min(100%, 22em);
   line-height: 1.6;
   margin: 0;
 }
@@ -153,7 +158,7 @@
   background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.3px,
       transparent 1px);
   background-size: 18px 18px;
-  padding: clamp(2rem, 4vw, 3rem) var(--section-pad-x);
+  padding: clamp(2rem, 4vw, 3rem) var(--global-padding-x);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,8 +166,7 @@
 
 @media (min-width: 1024px) {
   .purpose-section {
-    height: 65vh;
-    max-height: 450px;
+    height: auto;
   }
 }
 
@@ -172,7 +176,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 5.5rem;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
   background: var(--color-navy-light);
   border-radius: var(--radius-lg);
   padding: 2.12%;
@@ -181,20 +185,20 @@
 
 .purpose-card__img {
   width: 100%;
-  height: 258px;
+  height: clamp(11.2875rem, 17.92vw, 16.125rem);
   object-fit: cover;
   border-radius: 18px;
 }
 
 .purpose-card__content {
   margin-left: auto;
-  padding-left: 3rem;
+  padding-left: clamp(2.1rem, 3.33vw, 3rem);
 }
 
 .purpose-card__content .section-eyebrow {
   background: none;
   color: #C7AB09;
-  font-size: 20px;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
   font-weight: 400;
   padding: 0;
   margin-bottom: 16px;
@@ -202,7 +206,7 @@
 
 .purpose-card__content h2 {
   color: var(--color-white);
-  font-size: 30px;
+  font-size: clamp(1.313rem, 2.083vw, 1.875rem);
   font-weight: 500;
   margin: 0 0 0.95rem;
 }
@@ -210,8 +214,10 @@
 .purpose-card__content p {
   color: #ffffff;
   line-height: 1.4;
-  font-size: 20px;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
   font-weight: 400;
+  width: clamp(280px, 75ch, 100%);
+  max-width: 100%;
   margin: 0;
 }
 
@@ -220,7 +226,12 @@
 /* ---------------------------------------------------------------------- */
 
 .vision-section {
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: var(--global-padding-y) var(--global-padding-x);
+  overflow-x: clip;
+}
+
+.vision-section__img-wrap {
+  width: 100%;
 }
 
 .vision-section__inner {
@@ -240,7 +251,7 @@
 }
 
 .vision-card h2 {
-  font-size: 28px;
+  font-size: clamp(1.225rem, 1.944vw, 1.75rem);
   font-weight: 500;
   color: var(--color-navy);
   margin: 0 0 1rem;
@@ -258,15 +269,16 @@
 .vision-card p {
   color: var(--color-text-muted);
   line-height: 1.2;
-  font-size: 20px;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
   font-weight: 400;
   margin: 0;
 }
 
 .vision-section__img {
   width: 100%;
-  max-width: 730px;
-  height: clamp(220px, 32vw, 360px);
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--radius-lg);
 }
@@ -276,7 +288,12 @@
 /* ---------------------------------------------------------------------- */
 
 .mission-section {
-  padding: 0 var(--section-pad-x) var(--section-pad-y);
+  padding: 0 var(--global-padding-x) var(--global-padding-y);
+  overflow-x: clip;
+}
+
+.mission-section__img-wrap {
+  width: 100%;
 }
 
 .mission-section__inner {
@@ -291,8 +308,9 @@
 
 .mission-section__img {
   width: 100%;
-  max-width: 730px;
-  height: clamp(220px, 32vw, 360px);
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--radius-lg);
 }
@@ -302,11 +320,10 @@
   border-radius: var(--radius-lg);
   padding: clamp(2.5rem, 15vw, 3.5rem);
   width: 100%;
-  max-height: 600px;
 }
 
 .mission-card h2 {
-  font-size: 28px;
+  font-size: clamp(1.225rem, 1.944vw, 1.75rem);
   font-weight: 500;
   color: var(--color-navy);
   margin: 0 0 2rem;
@@ -324,7 +341,7 @@
 .mission-card p {
   color: var(--color-text-muted);
   line-height: 1.2;
-  font-size: 20px;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
   font-weight: 400;
   margin: 0;
 }
@@ -335,7 +352,7 @@
 
 .leadership-section {
   background: var(--color-navy);
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: var(--global-padding-y) var(--global-padding-x);
 }
 
 .leader-card {
@@ -364,7 +381,7 @@
 
 .leader-card__photo {
   width: 310px;
-  height: clamp(200px, 50vw, 350px);
+  height: clamp(12.5rem, 50vw, 21.875rem);
   object-fit: cover;
   border-radius: var(--radius-md);
   margin-bottom: 0.5rem;
@@ -373,20 +390,20 @@
 .leader-card__name {
   color: var(--color-white);
   font-weight: 400;
-  font-size: 24px;
+  font-size: clamp(1.05rem, 1.667vw, 1.5rem);
   margin: 0;
 }
 
 .leader-card__role {
   color: var(--color-white);
-  font-size: 20px;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
   font-weight: 400;
   margin: 0;
 }
 
 .leader-card__content h3 {
   color: var(--color-white);
-  font-size: 30px;
+  font-size: clamp(1.313rem, 2.083vw, 1.875rem);
   font-weight: 500;
   margin: 0 0 0.75rem;
 }
@@ -394,7 +411,7 @@
 .leader-card__content p {
   color: var(--color-white);
   line-height: 1.4;
-  font-size: 20px;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
   font-weight: 400;
   margin: 0 0 1rem;
 }
@@ -426,13 +443,12 @@
   .purpose-card {
     flex-direction: row;
     align-items: center;
-    gap: 3.5rem;
   }
 
   .purpose-card__img {
-    flex: 0 0 472px;
-    width: 472px;
-    height: 258px;
+    flex: 0 0 clamp(20.65rem, 32.78vw, 29.5rem);
+    width: clamp(20.65rem, 32.78vw, 29.5rem);
+    height: clamp(11.2875rem, 17.92vw, 16.125rem);
   }
 
   .vision-section__inner {
@@ -448,11 +464,11 @@
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 3.5rem 1rem 3.5rem 3rem;
-    min-height: 280px;
   }
 
-  .vision-section__img {
+  .vision-section__img-wrap {
     flex: 1;
+    min-width: 0;
   }
 
   .mission-section__inner {
@@ -461,8 +477,9 @@
     max-width: var(--max-width);
   }
 
-  .mission-section__img {
+  .mission-section__img-wrap {
     flex: 1;
+    min-width: 0;
   }
 
   .mission-card {
@@ -472,7 +489,6 @@
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 2rem 2.3rem;
-    min-height: 280px;
   }
 
   .leader-card {
@@ -498,7 +514,7 @@
   .vision-section__inner,
   .mission-section__inner,
   .leader-card {
-    max-width: 1320px;
+    max-width: 100%;
   }
 }
 
@@ -517,7 +533,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 0;
-    min-height: 89vh;
+    min-height: 85vh;
   }
 
   .hero__bg {
@@ -541,14 +557,14 @@
   .hero__content {
     z-index: 1;
     margin-top: 0;
-    padding: 0 0.85rem 7rem;
+    padding: 0 var(--global-padding-x) 7rem;
     width: 100%;
     text-align: center;
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 370px;
+    max-width: 100%;
   }
 
   .hero__content h1 {
@@ -568,7 +584,7 @@
 
   .purpose-card {
     gap: 2rem;
-    padding: 2rem 0.85rem;
+    padding: clamp(1rem, 2vw, 2rem) var(--global-padding-x);
   }
 
   .purpose-card__content {
@@ -576,8 +592,12 @@
     margin-left: 0;
   }
 
+  .purpose-card__content .section-eyebrow {
+    font-size: 20px;
+  }
+
   .purpose-card__content h2 {
-    font-size: 28px;
+    font-size: clamp(24px, 1.944vw, 24px);
   }
 
   .purpose-card__content p {
@@ -590,11 +610,11 @@
     width: 90%;
     z-index: 2;
     position: relative;
-    padding: 2rem 0.85rem;
+    padding: clamp(1rem, 2vw, 2rem) var(--global-padding-x);
     background: linear-gradient(360deg, #FFFFFF 0%, #E5E9FC 100%);
   }
 
-  .vision-section__img {
+  .vision-section__img-wrap {
     margin-top: 2.5rem;
   }
 
@@ -612,7 +632,7 @@
     width: 90%;
     z-index: 2;
     position: relative;
-    padding: 2rem 0.85rem;
+    padding: clamp(1rem, 2vw, 2rem) var(--global-padding-x);
     background: linear-gradient(0deg, #FFFFFF 0%, #ECF3F8 100%);
 
 

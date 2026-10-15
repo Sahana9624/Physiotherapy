@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Gallery.module.css";
 import Cta from "./Cta";
+import FadeUp from "./FadeUp";
 import { galleryItems } from "../data/galleryData";
 
 export default function Gallery() {
@@ -9,24 +10,28 @@ export default function Gallery() {
     <main className={styles.gallery}>
       {/* HEADER */}
       <section className={styles.header}>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span aria-hidden="true">›</span>
-          <span className={styles["breadcrumb__current"]}>Gallery</span>
-        </nav>
+        <FadeUp>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">›</span>
+            <span className={styles["breadcrumb__current"]}>Gallery</span>
+          </nav>
 
-        <h1>Gallery</h1>
-        <p>Campus and Department Images</p>
+          <h1>Gallery</h1>
+          <p>Campus and Department Images</p>
+        </FadeUp>
       </section>
 
       {/* GALLERY GRID */}
       <section className={styles["grid-section"]}>
         <div className={styles["gallery-grid"]}>
-          {galleryItems.map((item) => (
-            <Link
+          {galleryItems.map((item, idx) => (
+            <FadeUp
+              as={Link}
               to={`/gallery/${item.slug}`}
               className={styles["gallery-card"]}
               key={item.title}
+              delay={(idx % 3) * 120}
             >
               <div className={styles["gallery-card__img-wrap"]}>
                 <img src={item.coverImg} alt={item.title} className={styles["gallery-card__img"]} />
@@ -45,7 +50,7 @@ export default function Gallery() {
                   </svg>
                 </span> Know more
               </span>
-            </Link>
+            </FadeUp>
           ))}
         </div>
       </section>

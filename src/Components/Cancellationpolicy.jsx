@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Cancellationpolicy.module.css";
+import FadeUp from "./FadeUp";
 
 const sections = [
   {
@@ -33,29 +34,33 @@ export default function CancellationPolicy() {
     <main className={styles.page}>
       {/* PAGE HEADER */}
       <section className={styles["page-header"]}>
-        <h1>Cancellation Policy</h1>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span aria-hidden="true">›</span>
-          <span>Cancellation Policy</span>
-        </nav>
+        <FadeUp>
+          <h1>Cancellation Policy</h1>
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">›</span>
+            <span>Cancellation Policy</span>
+          </nav>
+        </FadeUp>
       </section>
 
       {/* CONTENT */}
       <section className={styles.content}>
-        {sections.map((section) => (
-          <div className={styles.section} key={section.title}>
-            <h2>{section.title}</h2>
-            {section.intro && (
-              <p className={styles["section__intro"]}>{section.intro}</p>
-            )}
-            <ul>
-              {section.items.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <FadeUp>
+          {sections.map((section) => (
+            <div className={styles.section} key={section.title}>
+              <h2>{section.title}</h2>
+              {section.intro && (
+                <p className={styles["section__intro"]}>{section.intro}</p>
+              )}
+              <ul>
+                {section.items.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </FadeUp>
       </section>
     </main>
   );

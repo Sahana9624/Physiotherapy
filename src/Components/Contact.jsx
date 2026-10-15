@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../Styles/Contact.module.css";
+import FadeUp from "./FadeUp";
 
 import heroImg from "../assets/images/contact-hero.jpg";
 
@@ -128,7 +129,7 @@ export default function Contact() {
 
       {/* CONTACT DETAILS + FORM */}
       <section className={styles["contact-section"]}>
-        <div className={styles["contact-card"]}>
+        <FadeUp className={styles["contact-card"]}>
           <div className={styles["contact-card__info"]}>
             <h1>Contact Us</h1>
             <p className={styles.intro}>
@@ -267,12 +268,12 @@ export default function Contact() {
               </button>
             </form>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* MAP */}
       <section className={styles["map-section"]}>
-        <div className={styles["map-card"]}>
+        <FadeUp className={styles["map-card"]}>
           <div className={styles["map-card__header"]}>
             <h2>Mother Terasa College of Physiotherapy</h2>
             <p>Mettusalai, Illuppur, Pudukkottai(Dt), Tamilnadu-622102.</p>
@@ -284,7 +285,7 @@ export default function Contact() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-        </div>
+        </FadeUp>
       </section>
 
       {submitted && (

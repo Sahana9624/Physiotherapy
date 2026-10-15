@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Cta.module.css";
+import FadeUp from "./FadeUp";
 import arrowUpRight from "../assets/icons/arrow-up-right.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
 
 export default function Cta() {
   return (
     <section className={styles["cta-section"]}>
-      <div className={styles["cta-card"]}>
+      <FadeUp className={styles["cta-card"]}>
         <span className={styles["section-eyebrow"]}>Apply Now</span>
         <h2 className={styles["section-title"]}>
           Need Guidance for Undergraduate BPT Program ?
@@ -23,7 +24,7 @@ export default function Cta() {
           </span> 
           <span className={styles["btn-text"]}>Enquire Now</span>
         </Link>
-      </div>
+      </FadeUp>
     </section>
   );
 }

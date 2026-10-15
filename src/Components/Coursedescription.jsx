@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Coursedescription.module.css";
 import CourseApplicationModal from "./CourseApplicationModal";
+import FadeUp from "./FadeUp";
 
 import heroImg from "../assets/images/course-hero.jpg";
 import overviewImg from "../assets/images/about-mission.jpg";
@@ -33,7 +34,7 @@ export default function CourseDescription() {
         />
 
         {/* HEADER CARD */}
-        <div className={styles["header-card"]}>
+        <FadeUp className={styles["header-card"]}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             <span aria-hidden="true">›</span>
@@ -53,12 +54,12 @@ export default function CourseDescription() {
           <button onClick={() => setIsModalOpen(true)} className={styles["apply-btn"]}>
             Apply Now
           </button>
-        </div>
+        </FadeUp>
       </section>
 
       {/* COURSE DETAILS */}
       <section className={styles["details-section"]}>
-        <div className={styles["details-grid"]}>
+        <FadeUp className={styles["details-grid"]}>
           <img
             src={overviewImg}
             alt="Faculty member assisting student with clinical equipment"
@@ -109,7 +110,7 @@ export default function CourseDescription() {
               </li>
             </ul>
           </div>
-        </div>
+        </FadeUp>
       </section>
     </main>
     <CourseApplicationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

@@ -47,7 +47,7 @@ export default function Footer() {
                   COLLEGE OF PHYSIOTHERAPY
                 </span>
                 <span className={styles["brand__affiliation"]}>
-                  Affiliated to Dr.M.G.R Medical University, Chennai
+                  Affiliated to The Tamil Nadu Dr.M.G.R Medical University
                 </span>
               </span>
             </Link>
@@ -108,11 +108,11 @@ export default function Footer() {
               <li>
                 <img src={phoneIcon} alt="Phone" className={styles["icon-wrap"]} />
                 <span>
-                  +91-94433 72151
-                  <br />
-                  +91-99429 88610,
+                  +91-86681 69844
                   <br />
                   +91-94433 72151
+                  <br />
+                  +91-99429 88610
                 </span>
               </li>
               <li>
