@@ -123,7 +123,7 @@ export default function CourseApplicationModal({ isOpen, onClose }) {
     form.city.trim() !== "" &&
     form.state.trim() !== "" &&
     isMobileValid &&
-    isPincodeValid &&
+    // isPincodeValid &&
     isAgreed;
 
   const handleSubmit = async (e) => {
@@ -146,8 +146,8 @@ export default function CourseApplicationModal({ isOpen, onClose }) {
           Email: form.email,
           Mobile: form.mobile,
           City: form.city,
-          State: form.state,
-          Pincode: form.pincode
+          State: form.state
+          // Pincode: form.pincode
         })
       });
       if (response.ok) {
@@ -205,15 +205,15 @@ export default function CourseApplicationModal({ isOpen, onClose }) {
                   <input type="text" name="city" placeholder={touched.city && form.city.trim() === "" ? "Please fill this" : "City"} value={form.city} onChange={handleChange} onBlur={handleBlur} required className={touched.city && form.city.trim() === "" ? styles.error : ""} />
                 </div>
                 
-                <div className={styles.inputGroup}>
+                <div className={`${styles.inputGroup} ${styles.fullWidth}`}>
                   <input type="text" name="state" placeholder={touched.state && form.state.trim() === "" ? "Please fill this" : "State"} value={form.state} onChange={handleChange} onBlur={handleBlur} required className={touched.state && form.state.trim() === "" ? styles.error : ""} />
                 </div>
                 
-                <div className={styles.inputGroup}>
+                {/* <div className={styles.inputGroup}>
                   <input type="text" name="pincode" placeholder={touched.pincode && form.pincode.trim() === "" ? "Please fill this" : "Pincode"} value={form.pincode} onChange={handleChange} onBlur={handleBlur} required className={touched.pincode && (!form.pincode.trim() || !isPincodeValid) ? styles.error : ""} />
                   {warnings.pincode && <p className={styles.errorText}>Maximum 6 digits allowed</p>}
                   {!warnings.pincode && touched.pincode && form.pincode.trim() !== "" && !isPincodeValid && <p className={styles.errorText}>Pincode must be exactly 6 digits</p>}
-                </div>
+                </div> */}
               </div>
 
               <div className={styles.inputGroup}>

@@ -4,19 +4,19 @@ import styles from "../Styles/Facilities.module.css";
 import Cta from "./Cta";
 import FadeUp from "./FadeUp";
 
-import heroImg from "../assets/images/facilities-hero.jpg";
-import amenitiesImg from "../assets/images/facilities-amenities.jpg";
+import heroImg from "../assets/images/facilities-hero.webp";
+import amenitiesImg from "../assets/images/facilities-amenities.webp";
 
-import anatomyImg from "../assets/images/lab-anatomy.png";
-import physiologyImg from "../assets/images/lab-physiology.png";
-import exerciseImg from "../assets/images/lab-exercise.png";
-import computerImg from "../assets/images/lab-computer.png";
-import neuroImg from "../assets/images/lab-neuro.jpg";
-import electrotherapyImg from "../assets/images/lab-electrotherapy.png";
-import canteenImg from "../assets/images/facility-canteen.png";
-import transportImg from "../assets/images/facility-transport.jpg";
-import hostelImg from "../assets/images/facility-hostel.jpg";
-import libraryImg from "../assets/images/facility-library.png";
+import anatomyImg from "../assets/images/lab-anatomy.webp";
+import physiologyImg from "../assets/images/lab-physiology.webp";
+import exerciseImg from "../assets/images/lab-exercise.webp";
+import computerImg from "../assets/images/lab-computer.webp";
+import neuroImg from "../assets/images/lab-neuro.webp";
+import electrotherapyImg from "../assets/images/lab-electrotherapy.webp";
+import canteenImg from "../assets/images/facility-canteen.webp";
+import transportImg from "../assets/images/facility-transport.webp";
+import hostelImg from "../assets/images/facility-hostel.webp";
+import libraryImg from "../assets/images/facility-library.webp";
 
 const quickLinks = [
   "Modern Labs",
@@ -91,7 +91,7 @@ export default function Facilities() {
     <main className={styles.facilities}>
       {/* HERO */}
       <section className={styles.hero}>
-        <img src={heroImg} alt="Faculty demonstrating clinical equipment" className={styles["hero__bg"]} />
+        <img src={heroImg} alt="Mother Terasa Pudukottai facilities hero" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
         <FadeUp className={styles["hero__content"]}>
           <h1>
@@ -127,7 +127,7 @@ export default function Facilities() {
       {/* STUDENT AMENITIES */}
       <section className={styles["amenities-section"]}>
         <FadeUp className={styles["amenities-card"]}>
-          <img src={amenitiesImg} alt="Faculty demonstrating equipment to a student" className={styles["amenities-card__img"]} />
+          <img src={amenitiesImg} alt="Mother Terasa Pudukottai amenities" className={styles["amenities-card__img"]} />
           <div className={styles["amenities-card__content"]}>
             <span className={styles["section-eyebrow"]}>Student Amenities</span>
             <h2>Comprehensive Facilities</h2>
@@ -172,7 +172,7 @@ export default function Facilities() {
               className={`${styles["facility-row"]} ${idx % 2 === 0 ? styles["facility-row--reverse"] : ""
                 }`}
             >
-              <img src={f.img} alt={f.title} className={styles["facility-row__img"]} />
+              <img src={f.img} alt={`Mother Terasa Pudukottai ${f.title}`} className={styles["facility-row__img"]} />
               <div className={styles["facility-row__content"]}>
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>

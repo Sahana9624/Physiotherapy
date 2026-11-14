@@ -34,7 +34,7 @@ export default function Gallery() {
               delay={(idx % 3) * 120}
             >
               <div className={styles["gallery-card__img-wrap"]}>
-                <img src={item.coverImg} alt={item.title} className={styles["gallery-card__img"]} />
+                <img src={item.coverImg} alt={`Mother Terasa Pudukottai ${item.title}`} className={styles["gallery-card__img"]} />
                 <div className={styles["gallery-card__overlay"]}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles["plus-icon"]}>
                     <line x1="12" y1="5" x2="12" y2="19"></line>

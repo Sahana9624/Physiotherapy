@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "../Styles/Footer.module.css";
-import logo from "../assets/images/logo-footer.png";
+import useMatchTextWidth from "./useMatchTextWidth";
+import logo from "../assets/images/logo-footer.webp";
 
 import locationIcon from "../assets/icons/location.svg";
 import mailIcon from "../assets/icons/mail.svg";
@@ -34,19 +35,22 @@ const legalLinks = [
 export default function Footer() {
   const location = useLocation();
   const isCoursePage = location.pathname === '/course-description';
+  const nameRef = useRef(null);
+  const affiliationRef = useRef(null);
+  useMatchTextWidth(nameRef, [affiliationRef]);
   return (
     <footer className={styles.footer}>
         <div className={styles["footer__top"]}>
           {/* BRAND COLUMN */}
           <div className={styles["footer__brand"]}>
             <Link to="/" className={styles.brand}>
-              <img src={logo} alt="Mother Terasa College logo" className={styles["brand__logo"]} />
+              <img src={logo} alt="Mother Terasa Pudukottai footer logo" className={styles["brand__logo"]} />
               <span className={styles["brand__text"]}>
-                <span className={styles["brand__name"]}>MOTHER TERASA</span>
+                <span ref={nameRef} className={styles["brand__name"]}>MOTHER TERASA</span>
                 <span className={styles["brand__tagline"]}>
                   COLLEGE OF PHYSIOTHERAPY
                 </span>
-                <span className={styles["brand__affiliation"]}>
+                <span ref={affiliationRef} className={styles["brand__affiliation"]}>
                   Affiliated to The Tamil Nadu Dr.M.G.R Medical University
                 </span>
               </span>
@@ -63,22 +67,22 @@ export default function Footer() {
             </p>
 
             <div className={styles["footer__social"]}>
-              <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">
+              <a href="https://www.facebook.com/motherterasainstitutions.org/" aria-label="Facebook" target="_blank" rel="noreferrer">
                 <img src={facebookIcon} alt="Facebook" className={styles.iconNormal} />
                 <img src={facebookHoverIcon} alt="Facebook Hover" className={styles.iconHover} />
               </a>
-              <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/company/mother-terasa-group-of-institutions/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
                 <img src={linkedinIcon} alt="LinkedIn" className={styles.iconNormal} />
                 <img src={linkedinHoverIcon} alt="LinkedIn Hover" className={styles.iconHover} />
               </a>
-              <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
+              <a href="https://www.instagram.com/mother_terasa_kalvi/?hl=en" aria-label="Instagram" target="_blank" rel="noreferrer">
                 <img src={instagramIcon} alt="Instagram" className={styles.iconNormal} />
                 <img src={instagramHoverIcon} alt="Instagram Hover" className={styles.iconHover} />
               </a>
-              <a href="https://twitter.com" aria-label="X (Twitter)" target="_blank" rel="noreferrer">
+              {/* <a href="https://twitter.com" aria-label="X (Twitter)" target="_blank" rel="noreferrer">
                 <img src={twitterIcon} alt="Twitter" className={styles.iconNormal} />
                 <img src={twitterHoverIcon} alt="Twitter Hover" className={styles.iconHover} />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -125,17 +129,18 @@ export default function Footer() {
 
       {/* BOTTOM BAR */}
       <div className={styles["footer__bottom"]}>
-        <h3 className={styles["legal-title"]}>Legal</h3>
+        {/* <h3 className={styles["legal-title"]}>Legal</h3>
         <ul className={styles["legal-links"]}>
           {legalLinks.map((link) => (
             <li key={link.label}>
               <Link to={link.to}>{link.label}</Link>
             </li>
           ))}
-        </ul>
+        </ul> */}
         <p className={styles.copyright}>
           © 2026 Mother Terasa College of Physiotherapy. All Rights Reserved.
         </p>
+        <p className={styles.copyright}>Designed & Developed by Ciphermutex Pvt. Ltd</p>
       </div>
     </footer>
   );

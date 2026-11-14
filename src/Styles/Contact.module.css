@@ -20,7 +20,8 @@
 
   font-family: "Outfit", sans-serif;
   color: var(--color-text-dark);
-  overflow-x: hidden;
+  /* clip (not hidden) so <main> doesn't become a nested scroll container that traps touch scrolling */
+  overflow-x: clip;
 }
 
 .contact img {
@@ -302,6 +303,38 @@
   height: clamp(280px, 42vw, 420px);
   border: 0;
   display: block;
+}
+
+.map-card__frame {
+  position: relative;
+}
+
+/* Touch-only shield so the map doesn't trap page scrolling on mobile */
+.map-card__shield {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .map-card__shield {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 0 1rem;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .map-card__shield span {
+    background: rgba(18, 32, 86, 0.85);
+    color: #fff;
+    font-size: 14px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+  }
 }
 
 /* ==========================================================================

@@ -4,20 +4,20 @@ import styles from "../Styles/About.module.css";
 import Cta from "./Cta";
 import FadeUp from "./FadeUp";
 
-import aboutHeroImg from "../assets/images/about-hero.jpg";
-import purposeImg from "../assets/images/about-purpose.jpg";
-import visionImg from "../assets/images/about-building.jpg";
-import missionImg from "../assets/images/about-mission.jpg";
-import founderImg from "../assets/images/founder.jpg";
-import chairmanImg from "../assets/images/chairman.jpg";
-import principalImg from "../assets/images/principal.jpg";
+import aboutHeroImg from "../assets/images/about-hero.webp";
+import purposeImg from "../assets/images/about-purpose.webp";
+import visionImg from "../assets/images/about-building.webp";
+import missionImg from "../assets/images/about-mission.webp";
+import founderImg from "../assets/images/founder.webp";
+import chairmanImg from "../assets/images/chairman.webp";
+import principalImg from "../assets/images/principal.webp";
 
 export default function About() {
   return (
     <main className={styles.about}>
       {/* HERO */}
       <section className={styles.hero}>
-        <img src={aboutHeroImg} alt="MTCP students examining a spine model" className={styles["hero__bg"]} />
+        <img src={aboutHeroImg} alt="Mother Terasa Pudukottai about hero" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
         <FadeUp className={styles["hero__content"]}>
           <h1>
@@ -36,7 +36,7 @@ export default function About() {
         <FadeUp className={styles["purpose-card"]}>
           <img
             src={purposeImg}
-            alt="Faculty guiding students with anatomy model"
+            alt="Mother Terasa Pudukottai purpose"
             className={styles["purpose-card__img"]}
           />
           <div className={styles["purpose-card__content"]}>
@@ -70,7 +70,7 @@ export default function About() {
           <FadeUp duration={850} className={styles["vision-section__img-wrap"]}>
             <img
               src={visionImg}
-              alt="Mother Terasa College of Physiotherapy campus building"
+              alt="Mother Terasa Pudukottai campus building"
               className={styles["vision-section__img"]}
             />
           </FadeUp>
@@ -83,7 +83,7 @@ export default function About() {
           <FadeUp duration={850} className={styles["mission-section__img-wrap"]}>
             <img
               src={missionImg}
-              alt="Faculty member assisting student with equipment"
+              alt="Mother Terasa Pudukottai mission"
               className={styles["mission-section__img"]}
             />
           </FadeUp>
@@ -116,7 +116,7 @@ export default function About() {
 
         <FadeUp className={styles["leader-card"]}>
           <div className={styles["leader-card__photo-wrap"]}>
-            <img src={founderImg} alt="Shri R. Chinnathambi" className={styles["leader-card__photo"]} />
+            <img src={founderImg} alt="Mother Terasa Pudukottai founder Shri R. Chinnathambi" className={styles["leader-card__photo"]} />
             <p className={styles["leader-card__name"]}>Shri R.Chinnathambi</p>
             <p className={styles["leader-card__role"]}>Founder</p>
           </div>
@@ -176,7 +176,11 @@ export default function About() {
             </p>
           </div>
           <div className={styles["leader-card__photo-wrap"]}>
-            <img src={chairmanImg} alt="Mr. R.C. Uthayakumar" className={styles["leader-card__photo"]} />
+            <img
+              src={chairmanImg}
+              alt="Mother Terasa Pudukottai chairman Mr. R.C. Uthayakumar"
+              className={`${styles["leader-card__photo"]} ${styles["leader-card__photo--chairman"]}`}
+            />
             <p className={styles["leader-card__name"]}>Mr.R.C.Uthayakumar B.A</p>
             <p className={styles["leader-card__role"]}>Chairman</p>
           </div>
@@ -184,7 +188,7 @@ export default function About() {
 
         <FadeUp className={styles["leader-card"]}>
           <div className={styles["leader-card__photo-wrap"]}>
-            <img src={principalImg} alt="Prof. R. Anbu Dhanabalan" className={styles["leader-card__photo"]} />
+            <img src={principalImg} alt="Mother Terasa Pudukottai principal Prof. R. Anbu Dhanabalan" className={styles["leader-card__photo"]} />
             <p className={styles["leader-card__name"]}>Prof. R. Anbu Dhanabalan</p>
             <p className={styles["leader-card__role"]}>Principal</p>
           </div>

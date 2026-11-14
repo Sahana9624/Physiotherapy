@@ -4,14 +4,14 @@ import styles from "../Styles/Home.module.css";
 import Cta from "./Cta";
 import FadeUp from "./FadeUp";
 
-import heroImg from "../assets/images/hero-students.jpg";
-import labImg1 from "../assets/images/lab-1.jpg";
-import labImg2 from "../assets/images/lab-2.jpg";
-import labImg3 from "../assets/images/lab-3.jpg";
-import labImg4 from "../assets/images/lab-4.jpg";
-import campusImg1 from "../assets/images/campus-life-1.png";
-import campusImg2 from "../assets/images/campus-life-2.png";
-import campusImg3 from "../assets/images/campus-life-3.png";
+import heroImg from "../assets/images/hero-students.webp";
+import labImg1 from "../assets/images/lab-1.webp";
+import labImg2 from "../assets/images/lab-2.webp";
+import labImg3 from "../assets/images/lab-3.webp";
+import labImg4 from "../assets/images/lab-4.webp";
+import campusImg1 from "../assets/images/campus-life-1.webp";
+import campusImg2 from "../assets/images/campus-life-2.webp";
+import campusImg3 from "../assets/images/campus-life-3.webp";
 import handsOnIcon from "../assets/icons/settings-01.svg";
 import handsOnIconHover from "../assets/icons/settings-hover.svg";
 import infraIcon from "../assets/icons/building2.svg";
@@ -116,7 +116,7 @@ export default function Home({ setAdmissionsModalOpen }) {
     <main className={styles.home}>
       {/* HERO */}
       <section className={styles.hero}>
-        <img src={heroImg} alt="MTCP students" className={styles["hero__bg"]} />
+        <img src={heroImg} alt="Mother Terasa Pudukottai hero students" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
         <FadeUp className={styles["hero__content"]}>
           <h1>Mother Terasa College Of <span>Physiotherapy</span></h1>
@@ -146,20 +146,18 @@ export default function Home({ setAdmissionsModalOpen }) {
             <Link to="/news" className={styles["newsbar__badge"]}>Latest News</Link>
           </div>
           <div className={styles["newsbar__marquee"]}>
-            <div className={styles["newsbar__track"]}>
-              {[1, 2, 3].map((i) => (
-                <Link to="/news" key={`t1-${i}`} className={styles["newsbar__text"]}>
-                  Nov 2025 Examination Timetable Download
-                </Link>
-              ))}
-            </div>
-            <div className={styles["newsbar__track"]}>
-              {[1, 2, 3].map((i) => (
-                <Link to="/news" key={`t2-${i}`} className={styles["newsbar__text"]}>
-                  Nov 2025 Examination Timetable Download
-                </Link>
-              ))}
-            </div>
+            {["t1", "t2"].map((track) => (
+              <div className={styles["newsbar__track"]} key={track}>
+                {[1, 2, 3].flatMap((i) => [
+                  <Link to="/news" key={`${track}-pongal-${i}`} className={styles["newsbar__text"]}>
+                    Pongal Celebrations 2026
+                  </Link>,
+                  <Link to="/news" key={`${track}-fdp-${i}`} className={styles["newsbar__text"]}>
+                    Six Days Online FDP Program
+                  </Link>,
+                ])}
+              </div>
+            ))}
           </div>
         </FadeUp>
       </section>
@@ -229,10 +227,10 @@ export default function Home({ setAdmissionsModalOpen }) {
       <section className={styles["handson-section"]}>
         <FadeUp className={styles["handson-section__inner"]}>
           <div className={styles["handson-gallery"]}>
-            <img src={labImg1} decoding="async" alt="Faculty guiding student" />
-            <img src={labImg2} decoding="async" alt="Students in group session" />
-            <img src={labImg3} decoding="async" alt="Anatomy model training" />
-            <img src={labImg4} decoding="async" alt="Student with model" />
+            <img src={labImg1} decoding="async" alt="Mother Terasa Pudukottai lab 1" />
+            <img src={labImg2} decoding="async" alt="Mother Terasa Pudukottai lab 2" />
+            <img src={labImg3} decoding="async" alt="Mother Terasa Pudukottai lab 3" />
+            <img src={labImg4} decoding="async" alt="Mother Terasa Pudukottai lab 4" />
             <div className={styles["handson-badge"]}>
               <div className={styles["handson-badge__text"]}>
                 <svg viewBox="0 0 200 200" width="100%" height="100%">
@@ -264,13 +262,9 @@ export default function Home({ setAdmissionsModalOpen }) {
               various biochemical, electrophysiological analysis using
               sophisticated instruments.
             </p>
-            <a href="/facilities" className={styles["link-arrow"]}>
-              <span className={styles["link-arrow__icon"]} aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.807 4.27005C10.807 4.27005 14.844 7.72132 14.8441 8.77584C14.8441 9.8303 10.807 13.2815 10.807 13.2815M14.3958 8.77582L3.60309 8.77582" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </span> Know more
-            </a>
+            <Link to="/facilities" className={styles["link-arrow"]}>
+              <span className={styles["link-arrow__icon"]} aria-hidden="true"></span> Know more
+            </Link>
           </div>
         </FadeUp>
       </section>
@@ -342,15 +336,15 @@ export default function Home({ setAdmissionsModalOpen }) {
                 </p>
               </div>
               <div className={styles["campus-img--main"]}>
-                <img src={campusImg1} alt="Aranga 2026 stage performance" />
+                <img src={campusImg1} alt="Mother Terasa Pudukottai campus life 1" />
               </div>
 
               {/* Bottom row: two equal images */}
               <div className={styles["campus-img--sub-1"]}>
-                <img src={campusImg2} alt="Singer performing at Aranga 2026" />
+                <img src={campusImg2} alt="Mother Terasa Pudukottai campus life 2" />
               </div>
               <div className={styles["campus-img--sub-2"]}>
-                <img src={campusImg3} alt="Hosts at Aranga 2026" />
+                <img src={campusImg3} alt="Mother Terasa Pudukottai campus life 3" />
               </div>
             </div>
           </div>

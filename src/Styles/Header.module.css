@@ -138,6 +138,7 @@
   font-weight: 500;
   color: #C6A302;
   letter-spacing: clamp(0.02em, 0.05vw, 0.05em);
+  white-space: nowrap;
 }
 
 .mobileOnly {

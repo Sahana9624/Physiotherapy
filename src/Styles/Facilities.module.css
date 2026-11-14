@@ -372,6 +372,13 @@
    ========================================================================== */
 @media (max-width: 768px) {
 
+  .hero {
+    align-items: flex-end;
+    /* Fill visible screen (excluding browser toolbar) minus 87px mobile header */
+    min-height: calc(100vh - 87px);
+    min-height: calc(100svh - 87px);
+  }
+
   .hero__bg {
     position: absolute;
     top: 0;
@@ -399,7 +406,7 @@
   .hero__content {
     background: transparent;
     border-radius: 0;
-    padding: 28.5rem 1rem 1.5rem;
+    padding: 0 1rem 1.5rem;
     width: 100%;
     text-align: center;
     display: flex;

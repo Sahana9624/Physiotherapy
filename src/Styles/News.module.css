@@ -201,10 +201,19 @@
 }
 
 .news-card__link-arrow {
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.3s ease;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
+  -webkit-mask: url("../assets/icons/arrow-right.svg") center / contain no-repeat;
+  mask: url("../assets/icons/arrow-right.svg") center / contain no-repeat;
   transform: rotate(-45deg);
+  transform-origin: 48.4% 46.2%;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  pointer-events: none;
 }
 
 .news-card__link::after {

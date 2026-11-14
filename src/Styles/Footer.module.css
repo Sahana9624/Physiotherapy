@@ -69,6 +69,7 @@
   color: #C1A400;
   margin-top: 0.15rem;
   letter-spacing: -0.02rem;
+  white-space: nowrap;
 }
 
 .footer__desc {
@@ -197,6 +198,18 @@
   height: clamp(0.09375rem, 0.104vw, 0.09375rem);
   background-color: #ffffff;
   transition: width 0.3s ease;
+}
+
+/* Contact list: no hover underline animation on mail id */
+.footer__col .contact-list li a::after,
+.footer__col .contact-list li a:hover::after {
+  content: none;
+  width: 0;
+  display: none;
+}
+
+.footer__col .contact-list li a {
+  cursor: text;
 }
 
 /* Contact list with icons */
@@ -449,10 +462,11 @@
    MOBILE PADDING OVERRIDE
    ========================================================================== */
 @media (max-width: 767px) {
+
   .footer__bottom {
     align-items: flex-start;
-    padding-left: var(--global-padding-x);
-    padding-right: var(--global-padding-x);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     padding-bottom: 0;
     text-align: left;
     padding-top: 1rem;
@@ -486,6 +500,22 @@
     margin: 2.5rem 0 0 0;
     max-width: none;
     width: 100%;
+  }
+
+  /* Show both lines as one continuous statement */
+  .footer__bottom {
+    display: block;
+    text-align: center;
+    padding-top: 3.5rem;
+  }
+
+  .footer__bottom .copyright {
+    display: inline;
+    margin: 0;
+  }
+
+  .copyright + .copyright {
+    margin-left: 0.3em;
   }
 
   .footer {

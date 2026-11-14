@@ -31,7 +31,7 @@ export default function NewsDetail() {
       <section className={styles.contentSection}>
         <FadeUp className={styles.newsCard}>
           <div className={styles.imageWrapper}>
-            <img src={newsItem.img} alt={newsItem.title} />
+            <img src={newsItem.img} alt={`Mother Terasa Pudukottai ${newsItem.title}`} />
           </div>
           <div className={styles.textContent}>
             {newsItem.isNew && <span className={styles.badge}>Latest</span>}

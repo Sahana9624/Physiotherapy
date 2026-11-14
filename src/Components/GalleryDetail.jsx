@@ -32,7 +32,7 @@ export default function GalleryDetail() {
         <div className={styles.imageGrid}>
           {galleryItem.images.map((imgSrc, idx) => (
             <FadeUp key={idx} delay={(idx % 3) * 100}>
-              <img src={imgSrc} alt={`${galleryItem.title} ${idx + 1}`} className={styles.gridImg} />
+              <img src={imgSrc} alt={`Mother Terasa Pudukottai ${galleryItem.title} ${idx + 1}`} className={styles.gridImg} />
             </FadeUp>
           ))}
         </div>

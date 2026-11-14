@@ -124,8 +124,29 @@
 }
 
 @media (min-width: 768px) {
+  .modal {
+    overflow: hidden;
+  }
+
   .content {
     flex-direction: row;
+    box-sizing: border-box;
+    max-height: 95vh;
+  }
+
+  .rightPanel {
+    align-items: flex-start;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .rightPanel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rightPanel .formCard {
+    margin: auto 0;
   }
 }
 
@@ -271,11 +292,46 @@
   transition: border-color 0.2s;
 }
 
-.formCard input:focus {
+.formCard select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 300;
+  font-family: inherit;
+  color: #383838;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-overflow: ellipsis;
+  transition: border-color 0.2s;
+}
+
+.formCard select.placeholder {
+  color: #757575;
+}
+
+.formCard select option {
+  color: #383838;
+}
+
+.selectRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+.formCard input:focus,
+.formCard select:focus {
   border-color: #586EBD;
 }
 
-.formCard input.error {
+.formCard input.error,
+.formCard select.error {
   border-color: #ff4d4f;
   background-color: rgba(255, 77, 79, 0.05);
 }
@@ -456,6 +512,10 @@ p.errorText {
 
   .formCard {
     padding: 1.5rem;
+  }
+
+  .selectRow {
+    gap: 1rem;
   }
 
   .successContent {

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import styles from "../Styles/Header.module.css";
-import logo from "../assets/images/logo.png";
+import useMatchTextWidth from "./useMatchTextWidth";
+import logo from "../assets/images/logo.webp";
 import phoneIcon from "../assets/images/phone.svg";
 import mailIcon from "../assets/images/mail.svg";
 import arrowIcon from "../assets/icons/arrow-right.svg";
@@ -18,6 +19,10 @@ const navLinks = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const nameRef = useRef(null);
+  const affiliationDesktopRef = useRef(null);
+  const affiliationMobileRef = useRef(null);
+  useMatchTextWidth(nameRef, [affiliationDesktopRef, affiliationMobileRef]);
 
 
 
@@ -45,14 +50,14 @@ export default function Header() {
         <div className={styles.navbar}>
           <div className={styles["navbar__inner"]}>
             <Link to="/" className={styles.brand} onClick={() => setMenuOpen(false)}>
-              <img src={logo} alt="Mother Terasa College logo" className={styles.brand__logo} />
+              <img src={logo} alt="Mother Terasa Pudukottai logo" className={styles.brand__logo} />
               <span className={styles.brand__text}>
-                <span className={styles.brand__name}>MOTHER TERASA</span>
+                <span ref={nameRef} className={styles.brand__name}>MOTHER TERASA</span>
                 <span className={styles.brand__tagline}>COLLEGE OF PHYSIOTHERAPY</span>
-                <span className={`${styles.brand__affiliation} ${styles.desktopOnly}`}>
+                <span ref={affiliationDesktopRef} className={`${styles.brand__affiliation} ${styles.desktopOnly}`}>
                   AFFILIATED TO THE TAMILNADU DR.M.G.R MEDICAL UNIVERSITY
                 </span>
-                <span className={`${styles.brand__affiliation} ${styles.mobileOnly}`}>
+                <span ref={affiliationMobileRef} className={`${styles.brand__affiliation} ${styles.mobileOnly}`}>
                   Affiliated to Dr.M.G.R Medical University,Chennai
                 </span>
               </span>

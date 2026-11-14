@@ -1,8 +1,8 @@
-import physioNervioImg from "../assets/images/gallery-physio-nervio.png";
-import christmasImg from "../assets/images/gallery-christmas.png";
-import foundersDayImg from "../assets/images/news-founders-day.png";
-import campPhotosImg from "../assets/images/gallery-camp.jpg";
-import studentActivityImg from "../assets/images/gallery-student-activity.jpg";
+import physioNervioImg from "../assets/images/gallery-physio-nervio.webp";
+import christmasImg from "../assets/images/gallery-christmas.webp";
+import foundersDayImg from "../assets/images/news-founders-day.webp";
+import campPhotosImg from "../assets/images/gallery-camp.webp";
+import studentActivityImg from "../assets/images/gallery-student-activity.webp";
 
 export const galleryItems = [
   { 

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../Styles/Contact.module.css";
 import FadeUp from "./FadeUp";
 
-import heroImg from "../assets/images/contact-hero.jpg";
+import heroImg from "../assets/images/contact-hero.webp";
 
 import locationIcon from "../assets/icons/location-blue.svg";
 import mailIcon from "../assets/icons/mail-blue.svg";
@@ -32,6 +32,21 @@ export default function Contact() {
   const [warnings, setWarnings] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMapActive, setIsMapActive] = useState(false);
+  const mapRef = useRef(null);
+
+  // On touch devices the map only takes gestures after a tap, so it can't trap page scrolling.
+  // Touching anywhere outside the map hands scrolling back to the page.
+  useEffect(() => {
+    if (!isMapActive) return;
+    const handleTouchOutside = (e) => {
+      if (mapRef.current && !mapRef.current.contains(e.target)) {
+        setIsMapActive(false);
+      }
+    };
+    document.addEventListener("touchstart", handleTouchOutside, { passive: true });
+    return () => document.removeEventListener("touchstart", handleTouchOutside);
+  }, [isMapActive]);
 
   const handleChange = (e) => {
     let { name, value, type, checked } = e.target;
@@ -124,7 +139,7 @@ export default function Contact() {
     <main className={styles.contact}>
       {/* HERO */}
       <section className={styles.hero}>
-        <img src={heroImg} alt="Mother Terasa College of Physiotherapy campus" className={styles["hero__bg"]} />
+        <img src={heroImg} alt="Mother Terasa Pudukottai contact hero" className={styles["hero__bg"]} />
       </section>
 
       {/* CONTACT DETAILS + FORM */}
@@ -278,13 +293,25 @@ export default function Contact() {
             <h2>Mother Terasa College of Physiotherapy</h2>
             <p>Mettusalai, Illuppur, Pudukkottai(Dt), Tamilnadu-622102.</p>
           </div>
-          <iframe
-            title="Mother Terasa College of Physiotherapy location"
-            className={styles["map-card__iframe"]}
-            src="https://maps.google.com/maps?q=Mother%20Teresa%20College%20of%20Physiotherapy%2C%20Illuppur%2C%20Pudukkottai&t=&z=15&ie=UTF8&iwloc=&output=embed"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <div ref={mapRef} className={styles["map-card__frame"]}>
+            <iframe
+              title="Mother Terasa College of Physiotherapy location"
+              className={styles["map-card__iframe"]}
+              src="https://maps.google.com/maps?q=Mother%20Teresa%20College%20of%20Physiotherapy%2C%20Illuppur%2C%20Pudukkottai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            {!isMapActive && (
+              <button
+                type="button"
+                className={styles["map-card__shield"]}
+                onClick={() => setIsMapActive(true)}
+                aria-label="Tap to interact with the map"
+              >
+                <span>Tap to interact with the map</span>
+              </button>
+            )}
+          </div>
         </FadeUp>
       </section>
 

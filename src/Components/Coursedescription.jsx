@@ -4,8 +4,8 @@ import styles from "../Styles/Coursedescription.module.css";
 import CourseApplicationModal from "./CourseApplicationModal";
 import FadeUp from "./FadeUp";
 
-import heroImg from "../assets/images/course-hero.jpg";
-import overviewImg from "../assets/images/about-mission.jpg";
+import heroImg from "../assets/images/course-hero.webp";
+import overviewImg from "../assets/images/about-mission.webp";
 
 const careerOpportunities = [
   "Hospitals and rehabilitation centers",
@@ -29,7 +29,7 @@ export default function CourseDescription() {
       <section className={styles.hero}>
         <img
           src={heroImg}
-          alt="Students examining a reflex hammer in a clinical training session"
+          alt="Mother Terasa Pudukottai course hero"
           className={styles["hero__bg"]}
         />
 
@@ -51,9 +51,14 @@ export default function CourseDescription() {
             <span>Internship - 1 Year</span>
           </div>
 
-          <button onClick={() => setIsModalOpen(true)} className={styles["apply-btn"]}>
-            Apply Now
-          </button>
+          <div className={styles["header-card__actions"]}>
+            <button onClick={() => setIsModalOpen(true)} className={styles["apply-btn"]}>
+              Apply Now
+            </button>
+            <a href="/bpt.pdf" download="BPT-Syllabus.pdf" className={styles["download-btn"]}>
+              Download Syllabus
+            </a>
+          </div>
         </FadeUp>
       </section>
 
@@ -62,7 +67,7 @@ export default function CourseDescription() {
         <FadeUp className={styles["details-grid"]}>
           <img
             src={overviewImg}
-            alt="Faculty member assisting student with clinical equipment"
+            alt="Mother Terasa Pudukottai course overview"
             className={styles["details-grid__img"]}
           />
 

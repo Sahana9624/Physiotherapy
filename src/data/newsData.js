@@ -1,9 +1,9 @@
-import pongal2026Img from "../assets/images/news-pongal-2026.jpg";
-import fdpImg from "../assets/images/news-fdp.png";
-import foundersDayImg from "../assets/images/news-founders-day.png";
-import independenceDayImg from "../assets/images/news-independence-day.png";
-import lifeSkillImg from "../assets/images/news-life-skill.png";
-import pongal2025Img from "../assets/images/news-pongal-2025.png";
+import pongal2026Img from "../assets/images/news-pongal-2026.webp";
+import fdpImg from "../assets/images/news-fdp.webp";
+import foundersDayImg from "../assets/images/news-founders-day.webp";
+import independenceDayImg from "../assets/images/news-independence-day.webp";
+import lifeSkillImg from "../assets/images/news-life-skill.webp";
+import pongal2025Img from "../assets/images/news-pongal-2025.webp";
 
 export const newsItems = [
   {

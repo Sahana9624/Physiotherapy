@@ -1,19 +1,70 @@
 import React, { useState, useEffect } from "react";
 import styles from "../Styles/AdmissionsModal.module.css";
-import modalImg from "../assets/images/admission-modal.jpg";
+import modalImg from "../assets/images/admission-modal.webp";
 import successCircleIcon from "../assets/icons/success-circle (1).svg";
 import successTickIcon from "../assets/icons/success-tick.svg";
+
+const STATE_CITIES = {
+  "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Tirupati", "Kurnool"],
+  "Arunachal Pradesh": ["Itanagar", "Naharlagun", "Pasighat"],
+  "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat"],
+  "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur"],
+  "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba"],
+  "Goa": ["Panaji", "Margao", "Vasco da Gama"],
+  "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
+  "Haryana": ["Gurugram", "Faridabad", "Panipat", "Ambala"],
+  "Himachal Pradesh": ["Shimla", "Dharamshala", "Mandi", "Solan"],
+  "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro"],
+  "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi", "Belagavi"],
+  "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kollam", "Kannur"],
+  "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur"],
+  "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad"],
+  "Manipur": ["Imphal", "Thoubal", "Bishnupur"],
+  "Meghalaya": ["Shillong", "Tura", "Jowai"],
+  "Mizoram": ["Aizawl", "Lunglei", "Champhai"],
+  "Nagaland": ["Kohima", "Dimapur", "Mokokchung"],
+  "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur"],
+  "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala"],
+  "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer"],
+  "Sikkim": ["Gangtok", "Namchi", "Gyalshing"],
+  "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Vellore", "Erode", "Thanjavur", "Cuddalore", "Villupuram"],
+  "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar"],
+  "Tripura": ["Agartala", "Udaipur", "Dharmanagar"],
+  "Uttar Pradesh": ["Lucknow", "Kanpur", "Noida", "Varanasi", "Agra", "Prayagraj"],
+  "Uttarakhand": ["Dehradun", "Haridwar", "Haldwani", "Roorkee"],
+  "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Siliguri", "Asansol"],
+  "Andaman and Nicobar Islands": ["Port Blair"],
+  "Chandigarh": ["Chandigarh"],
+  "Dadra and Nagar Haveli and Daman and Diu": ["Daman", "Diu", "Silvassa"],
+  "Delhi": ["New Delhi", "Delhi"],
+  "Jammu and Kashmir": ["Srinagar", "Jammu", "Anantnag"],
+  "Ladakh": ["Leh", "Kargil"],
+  "Lakshadweep": ["Kavaratti"],
+  "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"]
+};
+
+const DEGREE_COURSES = {
+  "UG": ["BPT"]
+};
 
 const initialForm = {
   name: "",
   email: "",
-  mobile: ""
+  mobile: "",
+  state: "",
+  city: "",
+  degree: "",
+  course: ""
 };
 
 const initialTouched = {
   name: false,
   email: false,
   mobile: false,
+  state: false,
+  city: false,
+  degree: false,
+  course: false,
   consent: false
 };
 
@@ -85,7 +136,12 @@ export default function AdmissionsModal({ isOpen, onClose }) {
       }
     }
     
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm((prev) => {
+      const next = { ...prev, [name]: value };
+      if (name === "state") next.city = "";
+      if (name === "degree") next.course = "";
+      return next;
+    });
   };
 
   const handleBlur = (e) => {
@@ -105,7 +161,17 @@ export default function AdmissionsModal({ isOpen, onClose }) {
     form.name.trim() !== "" &&
     isEmailValid &&
     isMobileValid &&
+    form.state !== "" &&
+    form.city !== "" &&
+    form.degree !== "" &&
+    form.course !== "" &&
     isAgreed;
+
+  const selectClass = (field) =>
+    [
+      !form[field] ? styles.placeholder : "",
+      touched[field] && !form[field] ? styles.error : ""
+    ].join(" ").trim();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -124,7 +190,11 @@ export default function AdmissionsModal({ isOpen, onClose }) {
           subject: "New Admissions Enquiry Submission of Mother Terasa College of Physiotherapy",
           Name: form.name,
           Mobile: form.mobile,
-          Email: form.email
+          Email: form.email,
+          State: form.state,
+          City: form.city,
+          Degree: form.degree,
+          Course: form.course
         })
       });
       if (response.ok) {
@@ -168,7 +238,7 @@ export default function AdmissionsModal({ isOpen, onClose }) {
               <p>Limited seats available—apply now to secure your place in our prestigious physiotherapy programs.</p>
 
               <div className={styles.imageWrapper}>
-                <img src={modalImg} alt="Student" />
+                <img src={modalImg} alt="Mother Terasa Pudukottai admission student" />
                 <div className={styles.badgeContainer}>
                   <div className={styles.badgeTab}>Programs Offered</div>
                   <div className={styles.badgeBody}>Bachelor Of Physiotherapy - BPT</div>
@@ -226,6 +296,44 @@ export default function AdmissionsModal({ isOpen, onClose }) {
                       className={touched.email && (!form.email.trim() || !isEmailValid) ? styles.error : ""}
                     />
                     {touched.email && form.email.trim() !== "" && !isEmailValid && <p className={styles.errorText}>Please enter a valid email address</p>}
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <select name="state" value={form.state} onChange={handleChange} onBlur={handleBlur} required className={selectClass("state")}>
+                      <option value="" disabled>Select your State</option>
+                      {Object.keys(STATE_CITIES).map((state) => (
+                        <option key={state} value={state}>{state}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <select name="city" value={form.city} onChange={handleChange} onBlur={handleBlur} required className={selectClass("city")}>
+                      <option value="" disabled>Select City</option>
+                      {(STATE_CITIES[form.state] || []).map((city) => (
+                        <option key={city} value={city}>{city}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className={styles.selectRow}>
+                    <div className={styles.inputGroup}>
+                      <select name="degree" value={form.degree} onChange={handleChange} onBlur={handleBlur} required className={selectClass("degree")}>
+                        <option value="" disabled>Select Degree</option>
+                        {Object.keys(DEGREE_COURSES).map((degree) => (
+                          <option key={degree} value={degree}>{degree}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className={styles.inputGroup}>
+                      <select name="course" value={form.course} onChange={handleChange} onBlur={handleBlur} required className={selectClass("course")}>
+                        <option value="" disabled>Select Course</option>
+                        {(DEGREE_COURSES[form.degree] || []).map((course) => (
+                          <option key={course} value={course}>{course}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
 
                   <div className={styles.inputGroup}>

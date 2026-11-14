@@ -4,8 +4,8 @@ import styles from "../Styles/Academics.module.css";
 import Cta from "./Cta";
 import FadeUp from "./FadeUp";
 
-import heroImg from "../assets/images/academics-hero.jpg";
-import highlightImg from "../assets/images/academics-highlight.jpg";
+import heroImg from "../assets/images/academics-hero.webp";
+import highlightImg from "../assets/images/academics-highlight.webp";
 
 import handsOnIcon from "../assets/icons/teaching.svg";
 import handsOnIconHover from "../assets/icons/teaching - hover.svg";
@@ -56,7 +56,7 @@ export default function Academics() {
     <main className={styles.academics}>
       {/* HERO */}
       <section className={styles.hero}>
-        <img src={heroImg} alt="Faculty teaching anatomy with skeleton model" className={styles["hero__bg"]} />
+        <img src={heroImg} alt="Mother Terasa Pudukottai academics hero" className={styles["hero__bg"]} />
         <div className={styles["hero__overlay"]} />
         
         <FadeUp className={styles["hero__content"]}>
@@ -111,15 +111,15 @@ export default function Academics() {
             through advanced physiotherapy education and practical exposure.
           </p>
 
-          <div className={styles["program-row"]}>
+          <Link to="/course-description" className={styles["program-row"]}>
             <div className={styles["program-row__info"]}>
               <span className={styles["program-row__title"]}>Bachelor of Physiotherapy</span>
               <span className={styles["program-row__duration"]}>Duration : 4 Years + 1 Year Internship</span>
             </div>
-            <Link to="/course-description" className={styles["program-row__btn"]}>
+            <span className={styles["program-row__btn"]}>
               Know More
-            </Link>
-          </div>
+            </span>
+          </Link>
         </FadeUp>
       </section>
 
@@ -140,7 +140,7 @@ export default function Academics() {
             <FadeUp className={styles["highlights-grid__img-wrap"]} style={{ height: "100%" }}>
               <img
                 src={highlightImg}
-                alt="Students examining an anatomical heart model"
+                alt="Mother Terasa Pudukottai academics highlight"
                 className={styles["highlights-grid__img"]}
               />
             </FadeUp>

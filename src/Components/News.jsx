@@ -34,7 +34,7 @@ export default function News() {
               delay={(idx % 3) * 120}
             >
               <div className={styles["news-card__img-wrap"]}>
-                <img src={item.img} alt={item.title} className={styles["news-card__img"]} />
+                <img src={item.img} alt={`Mother Terasa Pudukottai ${item.title}`} className={styles["news-card__img"]} />
                 {item.isNew && <span className={styles["news-card__badge"]}>New</span>}
               </div>
 
@@ -43,11 +43,7 @@ export default function News() {
               <p className={styles["news-card__excerpt"]}>{item.excerpt}</p>
 
               <span className={styles["news-card__link"]}>
-                <span className={styles["news-card__link-arrow"]} aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.807 4.27005C10.807 4.27005 14.844 7.72132 14.8441 8.77584C14.8441 9.8303 10.807 13.2815 10.807 13.2815M14.3958 8.77582L3.60309 8.77582" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </span> Know more
+                <span className={styles["news-card__link-arrow"]} aria-hidden="true"></span> Know more
               </span>
             </FadeUp>
           ))}
